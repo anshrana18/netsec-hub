@@ -1,10 +1,229 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>NetSec Hub</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial, sans-serif;
+}
+
+body{
+background:#0a0f1c;
+color:white;
+line-height:1.6;
+}
+
+header{
+background:url('assets/Background logo.png');
+background-size:cover;
+background-position:center;
+height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+position:relative;
+}
+
+header::before{
+content:'';
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+}
+
+.hero{
+position:relative;
+z-index:2;
+}
+
+.logo{
+width:180px;
+margin-bottom:20px;
+}
+
+.hero h1{
+font-size:3rem;
+margin-bottom:10px;
+}
+
+.hero p{
+font-size:1.2rem;
+margin-bottom:20px;
+}
+
+.btn{
+display:inline-block;
+padding:12px 25px;
+margin:10px;
+background:#00bfff;
+color:white;
+text-decoration:none;
+border-radius:6px;
+font-weight:bold;
+}
+
+.btn:hover{
+background:#0095cc;
+}
+
+section{
+padding:70px 10%;
+}
+
+.card{
+background:#111827;
+padding:25px;
+border-radius:10px;
+margin-top:20px;
+}
+
+.course-price{
+font-size:2rem;
+color:#00bfff;
+font-weight:bold;
+}
+
+footer{
+text-align:center;
+padding:30px;
+background:#05070d;
+margin-top:50px;
+}
+
+.small{
+font-size:0.9rem;
+color:#aaa;
+}
+</style>
 </head>
+
 <body>
+
+<header>
+<div class="hero">
+<img src="assets/NetSec Hub logo.png" class="logo">
+
 <h1>NetSec Hub</h1>
-<p>Learn Networking. Crack Interviews. Get Jobs.</p>
+
+<p>Learn Networking • Crack Interviews • Get Jobs</p>
+
+<a class="btn" href="https://www.linkedin.com/company/netsec-hub" target="_blank">
+Visit LinkedIn
+</a>
+
+<a class="btn"
+href="https://wa.me/918860971330?text=Hi%20NetSec%20Hub,%20I%20want%20to%20know%20more%20about%20your%20training.">
+Contact Us
+</a>
+</div>
+</header>
+
+<section>
+<h2>About NetSec Hub</h2>
+
+<div class="card">
+<p>
+NetSec Hub is a networking and cybersecurity learning platform dedicated to helping students and professionals build real-world skills through practical learning, hands-on labs, and interview-focused training.
+
+Whether you're learning BGP, OSPF, Cisco ASA Firewalls, FortiGate, or preparing for networking interviews, NetSec Hub provides practical knowledge that can be applied directly in production environments.
+
+Learn. Practice. Grow.
+</p>
+
+<br>
+
+<p class="small">
+Founded by Ansh Rana
+</p>
+</div>
+</section>
+
+<section>
+<h2>Cisco ASA Firewall Mastery Program</h2>
+
+<div class="card">
+
+<p class="course-price">
+₹1,999
+</p>
+
+<p>Launch Offer</p>
+
+<br>
+
+<ul>
+<li>ASA Fundamentals</li>
+<li>Security Levels</li>
+<li>Routing</li>
+<li>ACLs</li>
+<li>NAT & PAT</li>
+<li>Site-to-Site VPN</li>
+<li>Remote Access VPN</li>
+<li>Troubleshooting</li>
+<li>Hands-on Practical Labs</li>
+</ul>
+
+<br>
+
+<a class="btn"
+href="https://wa.me/918860971330?text=Hi%20NetSec%20Hub,%20I%20want%20to%20purchase%20the%20Cisco%20ASA%20Firewall%20Mastery%20Program.">
+Buy via WhatsApp
+</a>
+
+</div>
+</section>
+
+<section>
+<h2>Technical Content</h2>
+
+<div class="card">
+<p>
+✔ BGP Series<br>
+✔ OSPF Series<br>
+✔ Firewall Fundamentals<br>
+✔ Interview Questions<br>
+✔ Career Guidance
+</p>
+
+<br>
+
+<a class="btn"
+href="https://www.linkedin.com/company/netsec-hub"
+target="_blank">
+Read on LinkedIn
+</a>
+</div>
+</section>
+
+<section>
+<h2>Labs & Downloads</h2>
+
+<div class="card">
+<p>
+EVE-NG Labs, Firewall Configurations, Notes, and Study Resources are coming soon.
+</p>
+</div>
+</section>
+
+<footer>
+<h3>NetSec Hub</h3>
+
+<p>Networking • Cybersecurity • Career Growth</p>
+
+<p class="small">
+© 2026 NetSec Hub
+</p>
+</footer>
+
 </body>
 </html>
