@@ -390,7 +390,7 @@ View Resources
 
 <div class="labs-slider">
 
-<img src="assets/lab1.png" alt="Lab Preview">
+<img id="lab-image" src="assets/lab1.png" alt="Lab Preview">
 
 </div>
 
@@ -449,6 +449,32 @@ Follow on LinkedIn
 </a>
 
 </footer>
+
+<script>
+
+const labImages = [
+"assets/lab1.png",
+"assets/lab2.png",
+"assets/lab3.png",
+"assets/lab4.png",
+"assets/lab5.png"
+];
+
+let currentLab = 0;
+
+setInterval(() => {
+
+currentLab++;
+
+if(currentLab >= labImages.length){
+currentLab = 0;
+}
+
+document.getElementById("lab-image").src = labImages[currentLab];
+
+}, 3000);
+
+</script>
 
 </body>
 </html>
