@@ -211,7 +211,9 @@ width:100%;
 max-width:500px;
 border-radius:15px;
 box-shadow:0 0 25px rgba(0,191,255,.25);
-}  
+transition:opacity .8s ease;
+opacity:1;
+}
   
 footer{
 background:#05070d;
@@ -464,15 +466,24 @@ let currentLab = 0;
 
 setInterval(() => {
 
+const img = document.getElementById("lab-image");
+
+img.style.opacity = "0";
+
+setTimeout(() => {
+
 currentLab++;
 
 if(currentLab >= labImages.length){
 currentLab = 0;
 }
 
-document.getElementById("lab-image").src = labImages[currentLab];
+img.src = labImages[currentLab];
+img.style.opacity = "1";
 
-}, 3000);
+}, 800);
+
+}, 4000);
 
 </script>
 
