@@ -224,14 +224,36 @@ font-weight:bold;
 color:white;
 backdrop-filter:blur(6px);
 }
+
+.slider-dots{
+position:absolute;
+bottom:15px;
+right:15px;
+display:flex;
+gap:8px;
+}
+
+.dot{
+width:10px;
+height:10px;
+border-radius:50%;
+background:rgba(255,255,255,.4);
+transition:.3s;
+}
+
+.dot.active{
+background:#00bfff;
+box-shadow:0 0 10px #00bfff;
+}  
   
 .labs-slider img{
 width:100%;
 max-width:500px;
 border-radius:15px;
 box-shadow:0 0 25px rgba(0,191,255,.25);
-transition:opacity .8s ease;
+transition:opacity 1.2s ease, transform 6s ease;
 opacity:1;
+transform:scale(1);
 }
   
 footer{
@@ -419,6 +441,16 @@ View Resources
 BGP Path Attributes
 </div>
 
+<div class="slider-dots">
+
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+
+</div>  
+  
 </div>
 
 </div>
@@ -517,8 +549,20 @@ img.src = labImages[currentLab];
 
 document.getElementById("lab-title").innerText =
 labTitles[currentLab];
+img.style.transform = "scale(1)";  
 
+document.querySelectorAll(".dot").forEach(dot=>{
+dot.classList.remove("active");
+});
+
+document.querySelectorAll(".dot")[currentLab]
+.classList.add("active");
+  
 img.style.opacity = "1";
+setTimeout(()=>{
+img.style.transform = "scale(1.08)";
+},100);
+
 
 }, 1200);
 
