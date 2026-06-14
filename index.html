@@ -205,7 +205,26 @@ flex:1;
 display:flex;
 justify-content:center;
 }
+  
+.slider-container{
+position:relative;
+width:100%;
+max-width:500px;
+}
 
+.lab-title{
+position:absolute;
+bottom:15px;
+left:15px;
+background:rgba(0,0,0,.7);
+padding:8px 14px;
+border-radius:8px;
+font-size:.9rem;
+font-weight:bold;
+color:white;
+backdrop-filter:blur(6px);
+}
+  
 .labs-slider img{
 width:100%;
 max-width:500px;
@@ -392,7 +411,15 @@ View Resources
 
 <div class="labs-slider">
 
+<div class="slider-container">
+
 <img id="lab-image" src="assets/lab1.png" alt="Lab Preview">
+
+<div id="lab-title" class="lab-title">
+BGP Path Attributes
+</div>
+
+</div>
 
 </div>
 
@@ -462,6 +489,14 @@ const labImages = [
 "assets/lab5.png"
 ];
 
+const labTitles = [
+"BGP Path Attributes",
+"Palo Alto VPN",
+"OSPF Multi-Area",
+"Firewall Lab",
+"Major Enterprise Project"
+];
+
 let currentLab = 0;
 
 setInterval(() => {
@@ -479,11 +514,15 @@ currentLab = 0;
 }
 
 img.src = labImages[currentLab];
+
+document.getElementById("lab-title").innerText =
+labTitles[currentLab];
+
 img.style.opacity = "1";
 
-}, 800);
+}, 1200);
 
-}, 4000);
+}, 6000);
 
 </script>
 
