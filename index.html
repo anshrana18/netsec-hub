@@ -186,6 +186,33 @@ padding:35px;
 border-radius:20px;
 }
 
+.labs-preview{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:40px;
+background:#111827;
+padding:35px;
+border-radius:20px;
+}
+
+.labs-text{
+flex:1;
+}
+
+.labs-slider{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.labs-slider img{
+width:100%;
+max-width:500px;
+border-radius:15px;
+box-shadow:0 0 25px rgba(0,191,255,.25);
+}  
+  
 footer{
 background:#05070d;
 text-align:center;
@@ -340,13 +367,17 @@ View All Courses
   
 <section id="labs">
 
+<section id="labs">
+
 <h2 class="section-title">Labs & Resources</h2>
 
-<div class="about">
+<div class="labs-preview">
+
+<div class="labs-text">
 
 <p>
 Practice networking and cybersecurity skills with EVE-NG labs,
-configuration examples, study notes and downloadable resources.
+real-world topologies, firewall deployments, study notes and downloadable resources.
 </p>
 
 <br>
@@ -354,6 +385,14 @@ configuration examples, study notes and downloadable resources.
 <a class="btn" href="labs.html">
 View Resources
 </a>
+
+</div>
+
+<div class="labs-slider">
+
+<img src="assets/lab1.png" alt="Lab Preview">
+
+</div>
 
 </div>
 
