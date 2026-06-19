@@ -162,6 +162,23 @@ transform:translateY(-5px);
 margin-bottom:12px;
 }
 
+.course-image{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:12px;
+margin-bottom:15px;
+transition:.4s;
+}
+
+.card:hover .course-image{
+transform:scale(1.05);
+}
+
+.card:hover{
+box-shadow:0 0 20px rgba(0,191,255,.25);
+}
+  
 .course-card{
 background:linear-gradient(135deg,#111827,#172033);
 padding:35px;
@@ -385,8 +402,9 @@ Upcoming training programs focused on cloud networking, cloud security and moder
 
 <div class="card">
 
-<img src="assets/asa-course.png" alt="Cisco ASA Firewall" style="width:100%; border-radius:10px; margin-bottom:15px;">
-
+<img src="assets/asa-course.png"
+alt="Cisco ASA Firewall"
+class="course-image">
 <h3>Cisco ASA Firewall</h3>
 
 <p>
@@ -397,7 +415,7 @@ Recorded training with practical labs and troubleshooting.
 
 <div class="card">
 
-<img src="assets/ccna-course.png" alt="CCNA Live Batch" style="width:100%; border-radius:10px; margin-bottom:15px;">
+<img src="assets/ccna-course.png" alt="CCNA Live Batch" class="course-image">
 
 <h3>CCNA Live Batch</h3>
 
@@ -409,8 +427,7 @@ Networking fundamentals, routing, switching and real-world labs.
 
 <div class="card">
 
-<img src="assets/ccnp-course.jfif" alt="CCNP ENARSI" style="width:100%; border-radius:10px; margin-bottom:15px;">
-
+<img src="assets/ccnp-course.jfif" alt="CCNP ENARSI" class="course-image">
 <h3>CCNP ENARSI  Live Batch</h3>
 
 <p>
@@ -429,7 +446,6 @@ View All Courses
   
 <section id="labs">
 
-<section id="labs">
 
 <h2 class="section-title">Labs & Resources</h2>
 
