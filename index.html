@@ -146,6 +146,39 @@ grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
 }
 
+.tech-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+gap:20px;
+margin-top:30px;
+}
+
+.tech-card{
+background:#111827;
+padding:25px;
+border-radius:15px;
+text-align:center;
+border:1px solid rgba(255,255,255,.05);
+transition:.3s;
+}
+
+.tech-card:hover{
+transform:translateY(-5px);
+}
+
+.tech-card img{
+height:70px;
+max-width:100%;
+object-fit:contain;
+margin-bottom:15px;
+}
+
+.tech-card p{
+font-weight:bold;
+color:#cbd5e1;
+}
+  
+  
 .card{
 background:#111827;
 padding:25px;
@@ -457,6 +490,51 @@ Technical Questions • Scenario-Based Interviews • Troubleshooting Rounds •
 
 </section>
 
+<section id="technologies">
+
+<h2 class="section-title">Technologies You'll Learn</h2>
+
+<p style="color:#cbd5e1; margin-bottom:30px;">
+Learn industry-leading networking and cybersecurity technologies through practical training and real-world labs.
+</p>
+
+<div class="tech-grid">
+
+<div class="tech-card">
+<img src="assets/cisco.png" alt="Cisco">
+<p>Cisco</p>
+</div>
+
+<div class="tech-card">
+<img src="assets/paloalto.png" alt="Palo Alto">
+<p>Palo Alto</p>
+</div>
+
+<div class="tech-card">
+<img src="assets/fortinet.png" alt="Fortinet">
+<p>Fortinet</p>
+</div>
+
+<div class="tech-card">
+<img src="assets/zscaler.png" alt="Zscaler">
+<p>Zscaler (Soon)</p>
+</div>
+
+<div class="tech-card">
+<img src="assets/python.png" alt="Python">
+<p>Automation (Soon)</p>
+</div>
+
+<div class="tech-card">
+<img src="assets/eve.jfif" alt="EVE-NG">
+<p>EVE-NG Labs</p>
+</div>
+
+</div>
+
+</section>
+  
+  
 <section id="programs">
 
 <h2 class="section-title">Training Programs</h2>
