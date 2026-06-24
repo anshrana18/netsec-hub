@@ -154,7 +154,13 @@ margin-top:30px;
 }
 
 .tech-card{
-background:#111827;
+background:linear-gradient(135deg,#111827,#172033);
+padding:25px;
+border-radius:15px;
+text-align:center;
+border:1px solid rgba(0,191,255,.10);
+transition:.4s;
+}
 padding:25px;
 border-radius:15px;
 text-align:center;
@@ -163,11 +169,22 @@ transition:.3s;
 }
 
 .tech-card:hover{
-transform:translateY(-5px);
+transform:translateY(-8px);
+box-shadow:0 0 25px rgba(0,191,255,.20);
+}
+  
+.tech-card img{
+height:90px;
+max-width:100%;
+object-fit:contain;
+margin-bottom:15px;
+transition:.4s;
 }
 
-.tech-card img{
-height:70px;
+.tech-card:hover img{
+transform:scale(1.08);
+}  
+  
 max-width:100%;
 object-fit:contain;
 margin-bottom:15px;
@@ -492,7 +509,13 @@ Technical Questions • Scenario-Based Interviews • Troubleshooting Rounds •
 
 <section id="technologies">
 
-<h2 class="section-title">Technologies You'll Learn</h2>
+<h2 class="section-title">
+Technologies You'll Learn
+</h2>
+
+<p style="color:#9ca3af;">
+Train on technologies used by enterprises worldwide.
+</p>
 
 <p style="color:#cbd5e1; margin-bottom:30px;">
 Learn industry-leading networking and cybersecurity technologies through practical training and real-world labs.
