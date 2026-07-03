@@ -142,32 +142,29 @@ padding:90px 8%;
 }
 
 .ticker{
-width:100%;
-overflow:hidden;
 background:#00bfff;
-padding:10px 0;
+overflow:hidden;
 white-space:nowrap;
-position:relative;
+padding:10px 0;
 }
 
 .ticker-content{
 display:inline-block;
 white-space:nowrap;
-padding-left:100%;
-animation:ticker 28s linear infinite;
 font-weight:bold;
+font-size:15px;
 color:#fff;
-font-size:.95rem;
+animation:scrollTicker 22s linear infinite;
 }
 
-@keyframes ticker{
+@keyframes scrollTicker{
 0%{
-transform:translateX(0);
+transform:translateX(100%);
 }
 100%{
 transform:translateX(-100%);
 }
-}  
+}
   
 .section-title{
 font-size:2rem;
@@ -561,6 +558,7 @@ padding:30px 20px;
 <div class="ticker">
 
 <div class="ticker-content">
+&nbsp;&nbsp;&nbsp;
 
 🟢 CCNA Live Batch Admissions Open &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;
 
