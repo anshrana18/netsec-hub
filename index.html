@@ -141,6 +141,34 @@ section{
 padding:90px 8%;
 }
 
+.ticker{
+width:100%;
+overflow:hidden;
+background:#00bfff;
+padding:10px 0;
+white-space:nowrap;
+position:relative;
+}
+
+.ticker-content{
+display:inline-block;
+white-space:nowrap;
+padding-left:100%;
+animation:ticker 28s linear infinite;
+font-weight:bold;
+color:#fff;
+font-size:.95rem;
+}
+
+@keyframes ticker{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-100%);
+}
+}  
+  
 .section-title{
 font-size:2rem;
 margin-bottom:25px;
@@ -530,7 +558,23 @@ padding:30px 20px;
 <a href="#about">About</a>
 </div>
 </nav>
+<div class="ticker">
 
+<div class="ticker-content">
+
+🟢 CCNA Live Batch Admissions Open &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;
+
+🔥 Palo Alto Firewall Live Batch Enrolling Now &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;
+
+🔵 Cisco ASA Recorded Course Available &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;
+
+💬 WhatsApp Support Available &nbsp;&nbsp;&nbsp; • &nbsp;&nbsp;&nbsp;
+
+🌐 www.netsechub.in
+
+</div>
+
+</div>
 <section class="hero">
 
 <div class="hero-left">
