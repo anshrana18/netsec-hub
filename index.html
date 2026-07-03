@@ -168,12 +168,6 @@ text-align:center;
 border:1px solid rgba(0,191,255,.10);
 transition:.4s;
 }
-padding:25px;
-border-radius:15px;
-text-align:center;
-border:1px solid rgba(255,255,255,.05);
-transition:.3s;
-}
 
 .tech-card:hover{
 transform:translateY(-8px);
@@ -404,6 +398,29 @@ footer p{
 color:#9ca3af;
 }
 
+.whatsapp-float{
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+text-decoration:none;
+color:white;
+box-shadow:0 8px 25px rgba(0,0,0,.35);
+z-index:999;
+transition:.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
+  
 @media(max-width:900px){
 
 nav{
@@ -887,7 +904,21 @@ Created by Ansh Rana • Networking & Cybersecurity Instructor
 </div>
 
 </section>
+<section style="text-align:center;padding:40px 8%;">
 
+<h2 class="section-title">
+Ready to Start Your Networking Journey?
+</h2>
+
+<p style="color:#9ca3af;margin-bottom:25px;">
+Join our live batches or recorded courses and start building practical networking skills today.
+</p>
+
+<a class="btn" href="courses.html">
+Explore Courses
+</a>
+
+</section>
 <footer>
 
 <h3>NetSec Hub</h3>
@@ -913,7 +944,14 @@ LinkedIn
 </p>
 
 </footer>
-
+  
+<a class="whatsapp-float"
+href="https://wa.me/91YOURNUMBER"
+target="_blank"
+title="Chat on WhatsApp">
+💬
+</a>
+  
 <script>
 
 const labImages = [
