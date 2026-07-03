@@ -69,7 +69,7 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:120px 8% 80px;
+padding:180px 8% 80px;
 background:
 linear-gradient(rgba(5,10,20,.85), rgba(5,10,20,.85)),
 url('assets/Background logo.png');
@@ -387,6 +387,71 @@ transition:opacity 1.2s ease, transform 6s ease;
 opacity:1;
 transform:scale(1);
 }
+
+/* ===========================
+   Premium Announcement Bar
+=========================== */
+
+.ticker{
+position:fixed;
+top:76px;
+left:0;
+width:100%;
+height:58px;
+background:linear-gradient(90deg,#0099ff,#00bfff);
+display:flex;
+align-items:center;
+overflow:hidden;
+box-shadow:0 3px 15px rgba(0,191,255,.25);
+z-index:999;
+}
+
+.ticker-track{
+display:flex;
+width:max-content;
+animation:tickerMove 35s linear infinite;
+}
+
+.ticker:hover .ticker-track{
+animation-play-state:paused;
+}
+
+.ticker-item{
+display:flex;
+align-items:center;
+gap:35px;
+padding-right:35px;
+white-space:nowrap;
+font-size:16px;
+font-weight:600;
+color:white;
+}
+
+.ticker-item span{
+color:white;
+}
+
+.ticker-item a{
+color:#ffffff;
+font-weight:bold;
+text-decoration:underline;
+}
+
+.ticker-item a:hover{
+opacity:.85;
+}
+
+@keyframes tickerMove{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
   
 footer{
 background:#05070d;
@@ -422,43 +487,7 @@ transition:.3s;
 transform:scale(1.1);
 }
 
-.ticker{
-width:100%;
-background:#00bfff;
-overflow:hidden;
-white-space:nowrap;
-padding:12px 0;
-position:relative;
-}
 
-.ticker-track{
-display:flex;
-width:max-content;
-animation:tickerScroll 35s linear infinite;
-}
-
-.ticker-content{
-display:flex;
-align-items:center;
-gap:60px;
-padding-right:60px;
-font-size:15px;
-font-weight:600;
-color:white;
-}
-
-.ticker:hover .ticker-track{
-animation-play-state:paused;
-}
-
-@keyframes tickerScroll{
-0%{
-transform:translateX(0);
-}
-100%{
-transform:translateX(-50%);
-}
-}
   
 @media(max-width:900px){
 
@@ -477,7 +506,7 @@ display:none;
 .hero{
 flex-direction:column-reverse;
 text-align:center;
-padding:100px 5% 60px;
+padding:160px 5% 60px;
 gap:30px;
 min-height:auto;
 }
@@ -550,6 +579,14 @@ padding:25px;
 footer{
 padding:30px 20px;
 }
+.ticker{
+height:50px;
+}
+
+.ticker-item{
+font-size:14px;
+gap:25px;
+}  
 }
   
 </style>
@@ -570,68 +607,80 @@ padding:30px 20px;
 </div>
 </nav>
 
-<div style="background:red;color:white;padding:20px;text-align:center;font-size:24px;">
-THIS IS A TEST TICKER
-</div>
+<div class="ticker">
 
 <div class="ticker-track">
 
-<div class="ticker-content">
+<div class="ticker-item">
 
-🚀 CCNA Live Batch Admissions Open
-
-<span>•</span>
-
-🔥 Palo Alto Firewall Live Batch Enrolling Now
+<span>🚀 CCNA Live Batch Admissions Open</span>
 
 <span>•</span>
 
-📺 Cisco ASA Recorded Course Available
+<span>🔥 Palo Alto Live Batch Enrolling Now</span>
 
 <span>•</span>
 
-💬 WhatsApp Support Available
+<span>📺 Cisco ASA Recorded Course Available</span>
 
 <span>•</span>
 
-🔗 Follow us on LinkedIn @NetSec Hub
+<span>💬 WhatsApp Support Available</span>
 
 <span>•</span>
 
-🌐 www.netsechub.in
+<span>
+Follow us on LinkedIn
+<a href="https://www.linkedin.com/company/netsec-hub" target="_blank">
+@netsechub
+</a>
+</span>
+
+<span>•</span>
+
+<span>🌐 netsechub.in</span>
 
 </div>
 
-<div class="ticker-content">
+<!-- Duplicate for seamless scrolling -->
 
-🚀 CCNA Live Batch Admissions Open
+<div class="ticker-item">
 
-<span>•</span>
-
-🔥 Palo Alto Firewall Live Batch Enrolling Now
+<span>🚀 CCNA Live Batch Admissions Open</span>
 
 <span>•</span>
 
-📺 Cisco ASA Recorded Course Available
+<span>🔥 Palo Alto Live Batch Enrolling Now</span>
 
 <span>•</span>
 
-💬 WhatsApp Support Available
+<span>📺 Cisco ASA Recorded Course Available</span>
 
 <span>•</span>
 
-🔗 Follow us on LinkedIn @NetSec Hub
+<span>💬 WhatsApp Support Available</span>
 
 <span>•</span>
 
-🌐 www.netsechub.in
+<span>
+Follow us on LinkedIn
+<a href="https://www.linkedin.com/company/netsec-hub" target="_blank">
+@netsechub
+</a>
+</span>
+
+<span>•</span>
+
+<span>🌐 netsechub.in</span>
 
 </div>
 
 </div>
 
 </div>
-</div>
+
+
+
 <section class="hero">
 
 <div class="hero-left">
