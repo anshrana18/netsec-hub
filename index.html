@@ -200,17 +200,18 @@ margin-bottom:15px;
 .tech-card p{
 font-weight:bold;
 color:#cbd5e1;
-}
-  
+}  
   
 .card{
+position:relative;
+overflow:hidden;
 background:#111827;
 padding:25px;
 border-radius:15px;
 border:1px solid rgba(255,255,255,0.05);
 transition:.3s;
 }
-
+  
 .feature-card{
 overflow:hidden;
 }
@@ -256,10 +257,33 @@ color:white;
 background:#2563eb;
 color:white;
 }
+
+.ribbon{
+position:absolute;
+top:15px;
+right:-35px;
+width:140px;
+text-align:center;
+padding:8px 0;
+font-size:.75rem;
+font-weight:bold;
+color:white;
+transform:rotate(45deg);
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:2;
+}
+
+.ribbon-popular{
+background:#f59e0b;
+}
+
+.ribbon-trending{
+background:#ef4444;
+}  
   
 .course-image{
 width:100%;
-height:220px;
+height:200px;
 object-fit:contain;
 border-radius:12px;
 margin-bottom:15px;
@@ -664,12 +688,21 @@ Learn industry-leading networking and cybersecurity technologies through practic
   
 <section id="programs">
 
-<h2 class="section-title">Training Programs</h2>
+<h2 class="section-title">
+Professional Training Programs
+</h2>
+
+<p style="color:#9ca3af;margin-bottom:35px;">
+Choose from live instructor-led batches and self-paced recorded courses designed for aspiring Network & Security Engineers.
+</p>
 
 <div class="grid">
 
 <div class="card">
-
+<div class="ribbon ribbon-popular">
+Most Popular
+</div>
+  
 <img src="assets/ccna-course.png"
 alt="CCNA Live Batch"
 class="course-image">
@@ -716,7 +749,10 @@ View Details
 
 </div>
 <div class="card">
-
+<div class="ribbon ribbon-trending">
+Trending
+</div>
+  
 <img src="assets/paloalto.png"
 alt="Palo Alto Live Batch"
 class="course-image">
