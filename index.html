@@ -69,7 +69,7 @@ min-height:100vh;
 display:flex;
 align-items:center;
 justify-content:space-between;
-padding:120px 8% 80px;
+padding:60px 8% 80px;
 background:
 linear-gradient(rgba(5,10,20,.85), rgba(5,10,20,.85)),
 url('assets/Background logo.png');
@@ -389,23 +389,31 @@ transform:scale(1);
 =========================== */
 
 .ticker{
+margin-top:76px;
 width:100%;
 height:58px;
-background:linear-gradient(90deg,#111827,#1e293b);
 display:flex;
 align-items:center;
 overflow:hidden;
+
+background:linear-gradient(
+90deg,
+#111827,
+#162235,
+#111827
+);
+
 border-top:1px solid rgba(0,191,255,.15);
 border-bottom:1px solid rgba(0,191,255,.15);
+
 box-shadow:0 3px 12px rgba(0,0,0,.25);
 }
 
 .ticker-track{
 display:flex;
 align-items:center;
-flex-shrink:0;
-min-width:max-content;
-animation:tickerMove 28s linear infinite;
+width:max-content;
+animation:tickerMove 30s linear infinite;
 }
 
 .ticker:hover .ticker-track{
@@ -439,15 +447,15 @@ opacity:.85;
 
 @keyframes tickerMove{
 
-from{
+0%{
 transform:translateX(0);
 }
 
-to{
-transform:translateX(-100%);
+100%{
+transform:translateX(-50%);
 }
 
-}  
+} 
 footer{
 background:#05070d;
 text-align:center;
@@ -658,9 +666,12 @@ Follow us on LinkedIn
 <span>•</span>
 
 <span>
-Follow us on LinkedIn
+🔗 Follow us:
+
 <a href="https://www.linkedin.com/company/netsec-hub" target="_blank">
-@netsechub
+
+@NetSecHub
+
 </a>
 </span>
 
@@ -793,7 +804,6 @@ Technical Questions • Scenario-Based Interviews • Troubleshooting Rounds •
 
 </div>
 
-</div>
 
 </section>
 
