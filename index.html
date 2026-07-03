@@ -187,10 +187,6 @@ transition:.4s;
 transform:scale(1.08);
 }  
   
-max-width:100%;
-object-fit:contain;
-margin-bottom:15px;
-}
 
 .tech-card p{
 font-weight:bold;
@@ -406,8 +402,10 @@ box-shadow:0 3px 12px rgba(0,0,0,.25);
 
 .ticker-track{
 display:flex;
-width:max-content;
-animation:tickerMove 35s linear infinite;
+align-items:center;
+flex-shrink:0;
+min-width:max-content;
+animation:tickerMove 28s linear infinite;
 }
 
 .ticker:hover .ticker-track{
@@ -417,12 +415,12 @@ animation-play-state:paused;
 .ticker-item{
 display:flex;
 align-items:center;
-gap:35px;
-padding-right:35px;
+gap:40px;
+padding:0 40px;
 white-space:nowrap;
+flex-shrink:0;
 font-size:16px;
 font-weight:600;
-color:white;
 }
 
 .ticker-item span{
@@ -441,16 +439,15 @@ opacity:.85;
 
 @keyframes tickerMove{
 
-0%{
+from{
 transform:translateX(0);
 }
 
-100%{
-transform:translateX(-50%);
+to{
+transform:translateX(-100%);
 }
 
-}
-  
+}  
 footer{
 background:#05070d;
 text-align:center;
@@ -968,13 +965,17 @@ View Details
 </a>
 
 </div> 
-<br>
+</div>
+
+<div style="text-align:center;margin-top:40px;">
 
 <a class="btn" href="courses.html">
 View All Courses
 </a>
 
-</section>  
+</div>
+
+</section>
   
 <section id="labs">
 
@@ -1094,7 +1095,7 @@ LinkedIn
 </footer>
   
 <a class="whatsapp-float"
-href="https://wa.me/91YOURNUMBER"
+href="https://wa.me/918860971330"
 target="_blank"
 title="Chat on WhatsApp">
 💬
