@@ -50,8 +50,17 @@ text-decoration:none;
 margin-left:25px;
 }
 
-.nav-links a:hover{
-color:#00bfff;
+.nav-links{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.nav-links a{
+color:white;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
 }
 
 section{
@@ -78,6 +87,13 @@ border:1px solid rgba(255,255,255,.05);
 display:flex;
 flex-direction:column;
 height:100%;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+border-color:#00bfff;
+box-shadow:0 10px 30px rgba(0,191,255,.18);
 }
   
 .course-image{
@@ -129,8 +145,25 @@ background:#0a66c2;
 margin-top:auto;
 }
   
+.btn{
+display:inline-block;
+padding:12px 22px;
+background:#00bfff;
+color:white;
+text-decoration:none;
+border-radius:8px;
+margin-top:15px;
+margin-right:10px;
+transition:.3s;
+}
+
 .btn:hover{
-opacity:.9;
+transform:translateY(-2px);
+}
+  
+.card h3{
+min-height:60px;
+margin-bottom:12px;
 }
   
 </style>
@@ -147,6 +180,7 @@ opacity:.9;
 
 <div class="nav-links">
 <a href="index.html">Home</a>
+<a href="https://www.linkedin.com/company/netsec-hub" target="_blank">LinkedIn</a>
 </div>
 
 </nav>
@@ -157,9 +191,9 @@ opacity:.9;
 Professional Training Programs
 </h1>
 
-<p style="color:#cbd5e1;max-width:800px;margin-bottom:40px;">
-Industry-focused networking and cybersecurity programs designed with practical labs, real-world scenarios and career-oriented learning.
-</p>  
+<p style="color:#cbd5e1;max-width:850px;margin-bottom:40px;font-size:17px;">
+Build practical networking and cybersecurity skills through instructor-led training, hands-on labs, real-world troubleshooting and enterprise technologies.
+</p> 
   
 <div class="grid">
 
@@ -170,6 +204,9 @@ alt="Cisco ASA Firewall Course"
 class="course-image">
 
 <h3>Cisco ASA Firewall Mastery (Recorded)</h3>
+<p style="color:#22c55e;font-weight:bold;margin:8px 0;">
+✔ Self-Paced Recorded Course
+</p>
 <p class="old-price">Regular Price ₹2,999</p>
 
 <div class="price">₹1,999</div>
@@ -200,7 +237,10 @@ alt="CCNA Live Batch"
 class="course-image">
 
 <h3>CCNA Live Batch</h3>
-
+<p style="color:#00bfff;font-weight:bold;margin:8px 0;">
+● Live Instructor-Led Training
+</p>
+  
 <p>
 Live instructor-led training covering networking fundamentals, switching, routing, OSPF, ACLs, NAT and troubleshooting.
 </p>
@@ -227,7 +267,10 @@ alt="CCNP ENARSI Live Batch"
 class="course-image">
 
 <h3>CCNP ENARSI Live Batch</h3>
-
+<p style="color:#00bfff;font-weight:bold;margin:8px 0;">
+● Live Instructor-Led Training
+</p>
+  
 <p>
 Advanced routing, BGP, OSPF, redistribution, VPN technologies and real-world troubleshooting.
 </p>
@@ -254,7 +297,10 @@ alt="Palo Alto Firewall Live Batch"
 class="course-image">
 
 <h3>Palo Alto Firewall Live Batch</h3>
-
+<p style="color:#00bfff;font-weight:bold;margin:8px 0;">
+● Live Instructor-Led Training
+</p>
+  
 <p>
 Learn Palo Alto firewall configuration, security policies, NAT, VPNs, App-ID, User-ID and troubleshooting.
 </p>
