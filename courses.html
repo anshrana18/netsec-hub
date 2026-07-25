@@ -7,6 +7,10 @@
 <link rel="icon" href="assets/NetSec.png">
 
 <title>Training Programs | NetSec Hub</title>
+<title>Training Programs | NetSec Hub</title>
+
+<meta name="description"
+content="Industry-focused CCNA, CCNP ENARSI, Palo Alto Firewall and Cisco ASA Firewall training with practical labs, real-world troubleshooting and hands-on learning by NetSec Hub.">
 
 <style>
 *{
@@ -99,7 +103,7 @@ box-shadow:0 10px 30px rgba(0,191,255,.18);
 .course-image{
 width:100%;
 height:180px;
-object-fit:contain;
+object-fit:cover;
 border-radius:12px;
 margin-bottom:20px;
 background:#0b1220;
@@ -165,7 +169,32 @@ transform:translateY(-2px);
 min-height:60px;
 margin-bottom:12px;
 }
-  
+
+.ticker{
+overflow:hidden;
+background:#111827;
+border-top:1px solid rgba(255,255,255,.08);
+border-bottom:1px solid rgba(255,255,255,.08);
+padding:14px 0;
+white-space:nowrap;
+}
+
+  .ticker-track{
+display:inline-block;
+padding-left:100%;
+animation:scroll 28s linear infinite;
+font-weight:bold;
+color:#00bfff;
+}
+
+@keyframes scroll{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-100%);
+}
+}
 </style>
 </head>
 
@@ -324,7 +353,31 @@ Enroll Now
 
 </section>
 
-  <footer style="
+<div class="ticker">
+
+<div class="ticker-track">
+
+🔥 Practical Labs &nbsp;&nbsp; • &nbsp;&nbsp;
+BGP &nbsp;&nbsp; • &nbsp;&nbsp;
+OSPF &nbsp;&nbsp; • &nbsp;&nbsp;
+EIGRP &nbsp;&nbsp; • &nbsp;&nbsp;
+MPLS &nbsp;&nbsp; • &nbsp;&nbsp;
+Cisco ASA &nbsp;&nbsp; • &nbsp;&nbsp;
+Palo Alto &nbsp;&nbsp; • &nbsp;&nbsp;
+FortiGate &nbsp;&nbsp; • &nbsp;&nbsp;
+VPN &nbsp;&nbsp; • &nbsp;&nbsp;
+NAT &nbsp;&nbsp; • &nbsp;&nbsp;
+VLAN &nbsp;&nbsp; • &nbsp;&nbsp;
+STP &nbsp;&nbsp; • &nbsp;&nbsp;
+HSRP &nbsp;&nbsp; • &nbsp;&nbsp;
+Interview Preparation &nbsp;&nbsp; • &nbsp;&nbsp;
+Real-World Troubleshooting
+
+</div>
+
+</div>
+  
+<footer style="
 background:#05070d;
 text-align:center;
 padding:40px 20px;
