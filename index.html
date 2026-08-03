@@ -3,1348 +3,619 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description"
-content="Networking and Cybersecurity training, BGP, OSPF, Cisco ASA, practical labs and interview preparation by NetSec Hub.">
-<link rel="icon" href="/assets/NetSec.png">
-  <title>NetSec Hub | Networking & Cybersecurity Training</title>
-
+<title>NetSec Hub | Networking & Cybersecurity Training & Deployment</title>
+<meta name="description" content="NetSec Hub — Networking & Cybersecurity training (CCNA, CCNP, Palo Alto, FortiGate, Cisco ASA) and enterprise network deployment services. Practical labs, interview preparation and real-world projects.">
+<link rel="canonical" href="https://netsechub.in/">
+<link rel="icon" href="assets/NetSec.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://netsechub.in/">
+<meta property="og:title" content="NetSec Hub | Networking & Cybersecurity Training & Deployment">
+<meta property="og:description" content="Master CCNA, CCNP, Palo Alto, FortiGate & Cisco ASA with hands-on labs — or let NetSec Hub design, deploy and secure your enterprise network.">
+<meta property="og:image" content="https://netsechub.in/assets/Poster.png">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"EducationalOrganization","name":"NetSec Hub","url":"https://netsechub.in","logo":"https://netsechub.in/assets/NetSec.png","description":"Networking & Cybersecurity training and enterprise network deployment services.","founder":{"@type":"Person","name":"Ansh Rana"},"sameAs":["https://www.linkedin.com/company/netsec-hub"],"contactPoint":{"@type":"ContactPoint","telephone":"+91-8860971330","contactType":"customer service"}}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: { navy: '#0b1220', navy2: '#0a0f1c', card: '#0f172a', cyan: '#00bfff' },
+    fontFamily: { outfit: ['Outfit','sans-serif'], plex: ['IBM Plex Sans','sans-serif'] }
+  }}
+}
+</script>
+<script src="https://unpkg.com/lucide@latest"></script>
 <style>
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-scroll-behavior:smooth;
-font-family:Arial, Helvetica, sans-serif;
-}
-
-body{
-background:#0b1220;
-color:white;
-line-height:1.6;
-}
-
-nav{
-position:fixed;
-top:0;
-width:100%;
-padding:18px 8%;
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:rgba(5,10,20,0.95);
-backdrop-filter:blur(10px);
-z-index:1000;
-border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-.logo{
-display:flex;
-align-items:center;
-gap:10px;
-font-size:1.4rem;
-font-weight:700;
-color:#00bfff;
-}
-
-.logo img{
-height:40px;
-width:auto;
-border-radius:8px;
-}
-
-.nav-links a{
-color:white;
-text-decoration:none;
-margin-left:25px;
-font-size:0.95rem;
-transition:.3s;
-}
-
-.nav-links a:hover{
-color:#00bfff;
-}
-
-.hero{
-min-height:100vh;
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:90px 8% 70px;
-background:
-linear-gradient(rgba(5,10,20,.85), rgba(5,10,20,.85)),
-url('assets/Background logo.png');
-background-size:cover;
-background-position:center;
-gap:50px;
-}
-
-.hero-left{
-flex:1;
-}
-
-.hero-left h1{
-font-size:4rem;
-line-height:1.1;
-margin-bottom:20px;
-}
-
-.hero-left p{
-font-size:1.15rem;
-color:#cbd5e1;
-margin-bottom:30px;
-max-width:650px;
-}
-
-.hero-note{
-margin-top:20px;
-font-size:0.95rem;
-color:#9ca3af;
-font-weight:500;
-}  
-  
-.btn{
-display:inline-block;
-padding:14px 26px;
-margin-right:12px;
-margin-bottom:10px;
-background:#00bfff;
-color:white;
-text-decoration:none;
-border-radius:8px;
-font-weight:bold;
-transition:.3s;
-}
-
-.btn:hover{
-transform:translateY(-2px);
-}
-
-.btn-outline{
-background:transparent;
-border:1px solid #00bfff;
-}
-
-.hero-right{
-flex:1;
-display:flex;
-justify-content:center;
-}
-
-.hero-right img{
-width:100%;
-max-width:500px;
-border-radius:18px;
-box-shadow:0 0 35px rgba(0,191,255,.25);
-}
-
-section{
-padding:90px 8%;
-}
-
-  
-.section-title{
-font-size:2rem;
-margin-bottom:25px;
-color:#00bfff;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
-}
-
-.tech-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
-gap:20px;
-margin-top:30px;
-}
-
-.tech-card{
-background:linear-gradient(135deg,#111827,#172033);
-padding:25px;
-border-radius:15px;
-text-align:center;
-border:1px solid rgba(0,191,255,.10);
-transition:.4s;
-}
-
-.tech-card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(0,191,255,.20);
-}
-  
-.tech-card img{
-height:90px;
-max-width:100%;
-object-fit:contain;
-margin-bottom:15px;
-transition:.4s;
-}
-
-.tech-card:hover img{
-transform:scale(1.08);
-}  
-  
-
-.tech-card p{
-font-weight:bold;
-color:#cbd5e1;
-}  
-  
-.card{
-position:relative;
-overflow:hidden;
-background:#111827;
-padding:25px;
-border-radius:15px;
-border:1px solid rgba(255,255,255,0.05);
-transition:.3s;
-}
-  
-.feature-card{
-overflow:hidden;
-}
-
-.feature-card img{
-width:100%;
-height:180px;
-object-fit:cover;
-border-radius:12px;
-margin-bottom:15px;
-transition:.5s;
-}
-
-.feature-card:hover img{
-transform:scale(1.05);
-}
-  
-.card:hover{
-transform:translateY(-8px);
-box-shadow:0 0 25px rgba(0,191,255,.25);
-}
-
-.card h3{
-margin-bottom:12px;
-}
-  
-.badge{
-display:inline-block;
-padding:6px 12px;
-border-radius:20px;
-font-size:.75rem;
-font-weight:bold;
-margin-bottom:15px;
-letter-spacing:.5px;
-}
-
-.live{
-background:#22c55e;
-color:white;
-}
-
-.recorded{
-background:#2563eb;
-color:white;
-}
-
-.ribbon{
-position:absolute;
-top:15px;
-right:-35px;
-width:140px;
-text-align:center;
-padding:8px 0;
-font-size:.75rem;
-font-weight:bold;
-color:white;
-transform:rotate(45deg);
-box-shadow:0 5px 15px rgba(0,0,0,.3);
-z-index:2;
-}
-
-.ribbon-popular{
-background:#f59e0b;
-}
-
-.ribbon-trending{
-background:#ef4444;
-}  
-  
-.course-image{
-width:100%;
-height:200px;
-object-fit:contain;
-border-radius:12px;
-margin-bottom:15px;
-transition:.4s;
-background:#0b1220;
-}
-
-.card:hover .course-image{
-transform:scale(1.05);
-}
-
-.card:hover{
-box-shadow:0 0 20px rgba(0,191,255,.25);
-}
-  
-.course-card{
-background:linear-gradient(135deg,#111827,#172033);
-padding:35px;
-border-radius:20px;
-}
-
-.price{
-font-size:3rem;
-font-weight:bold;
-color:#00bfff;
-margin:10px 0;
-}
-
-.old-price{
-color:#888;
-text-decoration:line-through;
-}
-
-.about{
-background:#111827;
-padding:35px;
-border-radius:20px;
-}
-
-.labs-preview{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:40px;
-background:#111827;
-padding:35px;
-border-radius:20px;
-}
-
-.labs-text{
-flex:1;
-}
-
-.labs-slider{
-flex:1;
-display:flex;
-justify-content:center;
-}
-  
-.slider-container{
-position:relative;
-width:100%;
-max-width:500px;
-}
-
-.lab-title{
-position:absolute;
-bottom:15px;
-left:15px;
-background:rgba(0,0,0,.7);
-padding:8px 14px;
-border-radius:8px;
-font-size:.9rem;
-font-weight:bold;
-color:white;
-backdrop-filter:blur(6px);
-}
-
-.slider-dots{
-position:absolute;
-bottom:15px;
-right:15px;
-display:flex;
-gap:8px;
-}
-
-.dot{
-width:10px;
-height:10px;
-border-radius:50%;
-background:rgba(255,255,255,.4);
-transition:.3s;
-}
-
-.dot.active{
-background:#00bfff;
-box-shadow:0 0 10px #00bfff;
-}  
-  
-.labs-slider img{
-width:100%;
-max-width:500px;
-border-radius:15px;
-box-shadow:0 0 25px rgba(0,191,255,.25);
-transition:opacity 1.2s ease, transform 6s ease;
-opacity:1;
-transform:scale(1);
-}
-
-/* ===========================
-   Premium Announcement Bar
-=========================== */
-
-.ticker{
-margin-top:76px;
-width:100%;
-height:58px;
-display:flex;
-align-items:center;
-overflow:hidden;
-
-background:linear-gradient(
-90deg,
-#111827,
-#162235,
-#111827
-);
-
-border-top:1px solid rgba(0,191,255,.15);
-border-bottom:1px solid rgba(0,191,255,.15);
-
-box-shadow:0 3px 12px rgba(0,0,0,.25);
-}
-
-.ticker-track{
-display:flex;
-align-items:center;
-width:max-content;
-animation:tickerMove 30s linear infinite;
-}
-
-.ticker:hover .ticker-track{
-animation-play-state:paused;
-}
-
-.ticker-item{
-display:flex;
-align-items:center;
-gap:40px;
-padding:0 40px;
-white-space:nowrap;
-flex-shrink:0;
-font-size:16px;
-font-weight:600;
-}
-
-.ticker-item span{
-color:#e2e8f0;
-}
-
-.ticker-item a{
-color:#00bfff;
-font-weight:700;
-text-decoration:none;
-transition:.3s;
-}
-
-.ticker-item a:hover{
-color:#66d9ff;
-}
-
-@keyframes tickerMove{
-
-0%{
-transform:translateX(0);
-}
-
-100%{
-transform:translateX(-50%);
-}
-
-} 
-footer{
-background:#05070d;
-text-align:center;
-padding:40px 20px;
-border-top:1px solid rgba(255,255,255,0.05);
-}
-
-footer p{
-color:#9ca3af;
-}
-
-.whatsapp-float{
-position:fixed;
-bottom:25px;
-right:25px;
-width:60px;
-height:60px;
-background:#25D366;
-border-radius:50%;
-display:flex;
-justify-content:center;
-align-items:center;
-font-size:30px;
-text-decoration:none;
-color:white;
-box-shadow:0 8px 25px rgba(0,0,0,.35);
-z-index:999;
-transition:.3s;
-}
-
-.whatsapp-float:hover{
-transform:scale(1.1);
-}
-
-input,
-select,
-textarea{
-
-width:100%;
-
-padding:14px;
-
-background:#0b1220;
-
-border:1px solid #2b3b52;
-
-color:white;
-
-border-radius:10px;
-
-font-size:16px;
-
-}
-
-textarea{
-
-height:120px;
-
-resize:none;
-
-}
-  
-@media(max-width:900px){
-
-nav{
-padding:15px 5%;
-}
-
-.logo span{
-font-size:1.1rem;
-}
-
-.nav-links{
-display:none;
-}
-
-.hero{
-flex-direction:column-reverse;
-text-align:center;
-padding:85px 6% 45px;
-gap:30px;
-min-height:auto;
-}
-
-.hero-left h1{
-font-size:2.5rem;
-line-height:1.2;
-}
-
-.hero-left p{
-font-size:1rem;
-max-width:100%;
-}
-
-.hero-right img{
-max-width:300px;
-}
-
-.btn{
-display:block;
-width:100%;
-margin-right:0;
-margin:12px 0;
-text-align:center;
-}
-
-.hero-note{
-font-size:.9rem;
-line-height:1.6;
-}
-
-section{
-padding:45px 6%;
-}
-
-.grid{
-grid-template-columns:1fr;
-}
-
-.tech-grid{
-grid-template-columns:repeat(2,1fr);
-gap:15px;
-}
-
-.tech-card img{
-height:70px;
-}
-
-.course-image{
-height:180px;
-}
-
-.feature-card img{
-height:180px;
-}
-
-.labs-preview{
-flex-direction:column;
-text-align:center;
-padding:25px;
-}
-
-.slider-container{
-max-width:100%;
-}
-
-.about{
-padding:25px;
-}
-
-footer{
-padding:30px 20px;
-}
-.ticker{
-height:50px;
-}
-
-.ticker-item{
-font-size:14px;
-gap:25px;
-}  
-}
-  
+html{scroll-behavior:smooth}
+body{background:#0b1220;color:#fff;font-family:'IBM Plex Sans',sans-serif;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4{font-family:'Outfit',sans-serif}
+::selection{background:rgba(0,191,255,.35)}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:#0b1220}
+::-webkit-scrollbar-thumb{background:#1e293b;border-radius:8px}
+
+.ticker-track{display:flex;width:max-content;animation:tickerMove 32s linear infinite}
+.ticker-track:hover{animation-play-state:paused}
+@keyframes tickerMove{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.marquee-track{display:flex;width:max-content;animation:tickerMove 40s linear infinite}
+.marquee-track:hover{animation-play-state:paused}
+
+.grid-overlay{background-image:linear-gradient(rgba(0,191,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(0,191,255,.04) 1px,transparent 1px);background-size:48px 48px}
+.hero-glow{background:radial-gradient(ellipse 60% 50% at 70% 30%,rgba(0,191,255,.14),transparent 70%)}
+
+@keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.animate-float{animation:floatY 6s ease-in-out infinite}
+@keyframes pulseDot{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.5)}50%{opacity:.75;box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+.live-dot{animation:pulseDot 2s ease-in-out infinite}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+.card-hover{transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.card-hover:hover{transform:translateY(-6px);border-color:rgba(0,191,255,.5);box-shadow:0 0 30px rgba(0,191,255,.15)}
+
+.btn-primary{transition:filter .2s ease,transform .2s ease}
+.btn-primary:hover{filter:brightness(1.12);transform:scale(1.04)}
+input:focus,select:focus,textarea:focus{outline:none;border-color:rgba(0,191,255,.6)!important;box-shadow:0 0 0 3px rgba(0,191,255,.15)}
+input,select,textarea{transition:border-color .2s,box-shadow .2s}
+select option{background:#0f172a;color:#fff}
+
+.lab-img{transition:opacity .8s ease}
+@media (prefers-reduced-motion:reduce){.ticker-track,.marquee-track,.animate-float,.live-dot{animation:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
-
 <body>
 
-<nav>
-<div class="logo">
-<img src="assets/NetSec.png" alt="NetSec Hub">
-<span>NetSec Hub</span>
+<!-- TICKER -->
+<div class="bg-cyan overflow-hidden py-2 flex">
+  <div class="ticker-track" id="tickerTrack"></div>
 </div>
 
-<div class="nav-links">
-<a href="#content">Content</a>
-<a href="courses.html">Courses</a>
-<a href="#about">About</a>
-</div>
-</nav>
+<!-- NAVBAR -->
+<header id="navbar" class="sticky top-0 z-50 backdrop-blur-xl bg-navy/70 border-b border-white/5 transition-shadow duration-300">
+  <nav class="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-10 py-4">
+    <a href="index.html" class="flex items-center gap-3">
+      <img src="assets/NetSec.png" alt="NetSec Hub" class="h-10 w-auto rounded-lg">
+      <span class="font-outfit font-bold text-lg tracking-tight">NetSec <span class="text-cyan">Hub</span></span>
+    </a>
+    <div class="hidden md:flex items-center gap-8">
+      <a href="index.html#programs" class="text-sm text-slate-300 hover:text-cyan transition-colors font-medium">Programs</a>
+      <a href="index.html#services" class="text-sm text-slate-300 hover:text-cyan transition-colors font-medium">Services</a>
+      <a href="index.html#labs" class="text-sm text-slate-300 hover:text-cyan transition-colors font-medium">Labs</a>
+      <a href="index.html#about" class="text-sm text-slate-300 hover:text-cyan transition-colors font-medium">About</a>
+      <a href="courses.html" class="text-sm text-slate-300 hover:text-cyan transition-colors font-medium">Courses</a>
+      <a href="index.html#contact" class="btn-primary inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-bold bg-gradient-to-r from-cyan to-[#0080ff] text-navy">
+        <i data-lucide="phone-call" class="w-4 h-4"></i> Book a Call
+      </a>
+    </div>
+    <button id="menuBtn" class="md:hidden text-white" aria-label="Toggle menu"><i data-lucide="menu" class="w-6 h-6"></i></button>
+  </nav>
+  <div id="mobileMenu" class="hidden md:hidden border-t border-white/5 bg-navy/95 backdrop-blur-xl px-6 py-4 flex-col gap-4">
+    <a href="index.html#programs" class="text-slate-300 hover:text-cyan font-medium">Programs</a>
+    <a href="index.html#services" class="text-slate-300 hover:text-cyan font-medium">Services</a>
+    <a href="index.html#labs" class="text-slate-300 hover:text-cyan font-medium">Labs</a>
+    <a href="index.html#about" class="text-slate-300 hover:text-cyan font-medium">About</a>
+    <a href="courses.html" class="text-slate-300 hover:text-cyan font-medium">Courses</a>
+    <a href="index.html#contact" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-full text-sm font-bold bg-gradient-to-r from-cyan to-[#0080ff] text-navy"><i data-lucide="phone-call" class="w-4 h-4"></i> Book a Call</a>
+  </div>
+</header>
 
-<div class="ticker">
-
-<div class="ticker-track">
-
-<div class="ticker-item">
-
-<span><strong style="color:#00bfff;">CCNA</strong> Live Batch  • Admissions Open</span>
-
-<span>|</span>
-
-<span><strong style="color:#00bfff;">Palo Alto</strong> Firewall Live Batch  • Enrolling</span>
-
-<span>|</span>
-
-<span><strong style="color:#00bfff;">Cisco ASA</strong>  • Recorded Course Available</span>
-
-<span>|</span>
-
-<span>WhatsApp Support Available</span>
-
-<span>|</span>
-
-<span>
-Follow us:
-<a href="https://www.linkedin.com/company/netsec-hub" target="_blank">
-@NetSecHub
-</a>
-</span>
-
-<span>|</span>
-
-<span>netsechub.in</span>
-</div>
-
-<!-- Duplicate for seamless scrolling -->
-
-<div class="ticker-item">
-
-<span><strong style="color:#00bfff;">CCNA</strong> Live Batch • Admissions Open</span>
-
-<span>|</span>
-
-<span><strong style="color:#00bfff;">Palo Alto</strong> Firewall Live Batch • Enrolling</span>
-
-<span>|</span>
-
-<span><strong style="color:#00bfff;">Cisco ASA</strong> • Recorded Course Available</span>
-
-<span>|</span>
-
-<span>WhatsApp Support Available</span>
-
-<span>|</span>
-
-<span>
-Follow us:
-<a href="https://www.linkedin.com/company/netsec-hub" target="_blank">
-@NetSecHub
-</a>
-</span>
-
-<span>|</span>
-
-<span>netsechub.in</span>
-</div>
-</div>
-</div>
-
-
-
-<section class="hero">
-
-<div class="hero-left">
-
-<h1>
-Learn Networking.<br>
-Crack Interviews.<br>
-Get Jobs.
-</h1>
-
-<p>
-Master Networking and Cybersecurity through practical labs,
-real-world troubleshooting, interview preparation, and
-industry-focused training.
-</p>
-
-<a class="btn" href="courses.html">
-Explore Courses
-</a>
-
-<a class="btn btn-outline"
-href="https://wa.me/918860971330"
-target="_blank">
-WhatsApp Us
-</a>
-
-<p class="hero-note">
-🎓 Enroll in Live Batches & Recorded Courses • Practical Labs • WhatsApp Support Available
-</p>  
-  
-</div>
-
-<div class="hero-right">
-<img src="assets/Poster.png" alt="NetSec Hub">
-</div>
-
+<!-- HERO -->
+<section class="relative overflow-hidden grid-overlay">
+  <canvas id="netCanvas" class="absolute inset-0 w-full h-full"></canvas>
+  <div class="absolute inset-0 hero-glow pointer-events-none"></div>
+  <div class="relative max-w-7xl mx-auto px-6 md:px-10 pt-20 pb-24 lg:pt-28 lg:pb-32 grid lg:grid-cols-2 gap-16 items-center">
+    <div>
+      <div class="reveal mb-8">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan/40 bg-cyan/10 text-cyan text-xs font-semibold tracking-wide uppercase">
+          <span class="w-2 h-2 rounded-full bg-green-400 live-dot"></span> Admissions Open — CCNA Live Batch
+        </span>
+      </div>
+      <h1 class="reveal text-5xl sm:text-6xl lg:text-7xl font-black tracking-tighter leading-[1.02]">
+        Learn Networking.<br>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-cyan via-cyan-200 to-white">Secure Enterprises.</span><br>
+        Get Hired.
+      </h1>
+      <p class="reveal mt-8 text-base lg:text-lg text-slate-400 leading-relaxed font-light max-w-xl">
+        Master Networking &amp; Cybersecurity through practical labs, real-world troubleshooting and interview preparation — or let our engineers design, deploy and secure your enterprise network end to end.
+      </p>
+      <div class="reveal mt-10 flex flex-wrap gap-4">
+        <a href="courses.html" class="btn-primary inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold bg-gradient-to-r from-cyan to-[#0080ff] text-navy shadow-[0_0_30px_rgba(0,191,255,0.35)]">
+          Explore Courses <i data-lucide="arrow-right" class="w-[18px] h-[18px]"></i>
+        </a>
+        <a href="#services" class="inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold border border-cyan/50 text-cyan hover:bg-cyan/10 transition-colors">
+          <i data-lucide="shield-check" class="w-[18px] h-[18px]"></i> Deployment Services
+        </a>
+      </div>
+      <div class="reveal mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-slate-500">
+        <span class="flex items-center gap-2"><i data-lucide="graduation-cap" class="w-4 h-4 text-cyan"></i> Live &amp; Recorded Batches</span>
+        <span class="flex items-center gap-2"><i data-lucide="radio" class="w-4 h-4 text-cyan"></i> Hands-on EVE-NG Labs</span>
+        <a href="https://wa.me/918860971330" target="_blank" class="flex items-center gap-2 hover:text-[#25D366] transition-colors"><i data-lucide="message-circle" class="w-4 h-4 text-[#25D366]"></i> WhatsApp Support</a>
+      </div>
+    </div>
+    <div class="reveal relative flex justify-center">
+      <div class="absolute inset-0 blur-3xl bg-cyan/15 rounded-full scale-90"></div>
+      <img src="assets/Poster.png" alt="NetSec Hub Training" class="relative w-full max-w-md rounded-2xl border border-cyan/20 shadow-[0_0_60px_rgba(0,191,255,0.2)] animate-float">
+      <div class="absolute -bottom-5 left-2 sm:left-6 px-5 py-3 rounded-xl bg-card/90 backdrop-blur-md border border-cyan/30 shadow-lg">
+        <p class="text-2xl font-black text-cyan font-outfit">500+</p><p class="text-xs text-slate-400">Students Learning</p>
+      </div>
+      <div class="absolute -top-5 right-2 sm:right-6 px-5 py-3 rounded-xl bg-card/90 backdrop-blur-md border border-cyan/30 shadow-lg">
+        <p class="text-2xl font-black text-cyan font-outfit">100+</p><p class="text-xs text-slate-400">Hands-on Labs</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section id="content">
-
-<h2 class="section-title">Why Choose NetSec Hub?</h2>
-
-<div class="grid">
-
-<div class="card feature-card">
-
-<img src="assets/latest-tech.png" alt="Latest Technologies">
-
-<h3>🚀 Latest Technologies</h3>
-
-<p>
-Learn Cisco, Palo Alto, Fortinet, Zscaler, AWS and Azure Security technologies.
-</p>
-
-</div>
-
-<div class="card feature-card">
-
-<img src="assets/industry-skills.jfif" alt="Industry Skills">
-
-<h3>💼 Industry Skills</h3>
-
-<p>
-Build practical implementation and troubleshooting skills required by employers.
-</p>
-
-</div>
-
-<div class="card feature-card">
-
-<img src="assets/labs.jfif" alt="Hands-On Labs">
-
-<h3>🧪 Hands-On Labs</h3>
-
-<p>
-Practice using EVE-NG labs, enterprise routing, firewalls and security technologies.
-</p>
-
-</div>
-
-<div class="card feature-card">
-
-<img src="assets/automation.png" alt="Network Automation">
-
-<h3>⚙️ Network Automation</h3>
-
-<p>
-Learn automation concepts, APIs and modern network operations workflows.
-</p>
-
-</div>
-
-<div class="card feature-card">
-
-<img src="assets/cloud-security.png" alt="Cloud Security">
-
-<h3>☁️ Cloud Security</h3>
-
-<p>
-AWS Security, Azure Security and Zscaler Secure Access technologies.
-</p>
-
-</div>
-
-<div class="card feature-card">
-
-<img src="assets/interview.jfif" alt="Interview Preparation">
-
-<h3>🎯 Interview Preparation</h3>
-<p>
-Technical Questions • Scenario-Based Interviews • Troubleshooting Rounds • Resume Guidance
-</p>
-
-</div>
-
-</div>
-
-</section>
-  
-  
-<section id="programs">
-
-<h2 class="section-title">
-Professional Training Programs
-</h2>
-
-<p style="color:#9ca3af;margin-bottom:35px;">
-Choose from live instructor-led batches and self-paced recorded courses designed for aspiring Network & Security Engineers.
-</p>
-
-<div class="grid">
-
-<div class="card">
-<div class="ribbon ribbon-popular">
-Most Popular
-</div>
-  
-<img src="assets/ccna-course.png"
-alt="CCNA Live Batch"
-class="course-image">
-
-<span class="badge live">LIVE BATCH</span>
-
-<h3>CCNA Live Batch</h3>
-
-<p>
-👨‍🏫 Live Instructor-led Training
-<br><br>
-Learn Routing, Switching, OSPF, EIGRP, VLANs and interview preparation with live practical sessions.
-</p>
-
-<br>
-
-<a class="btn" href="courses.html">
-View Details
-</a>
-
-</div>
-
-<div class="card">
-
-<img src="assets/ccnp-course.jfif"
-alt="CCNP ENARSI"
-class="course-image">
-
-<span class="badge live">LIVE BATCH</span>
-
-<h3>CCNP ENARSI Live Batch</h3>
-
-<p>
-👨‍🏫 Live Advanced Training
-<br><br>
-Master Enterprise Routing, BGP, OSPF, Route Redistribution and real-world troubleshooting.
-</p>
-
-<br>
-
-<a class="btn" href="courses.html">
-View Details
-</a>
-
-</div>
-<div class="card">
-<div class="ribbon ribbon-trending">
-Trending
-</div>
-  
-<img src="assets/paloalto.png"
-alt="Palo Alto Live Batch"
-class="course-image">
-
-<span class="badge live">LIVE BATCH</span>
-  
-<h3>Palo Alto Firewall Live Batch</h3>
-
-<p>
-
-👨‍🏫 Live Instructor-led Training
-
-<br><br>
-
-Master Palo Alto Firewall configuration, Security Policies, NAT, VPN, App-ID, User-ID and enterprise deployments.
-
-</p>
-
-<br>
-
-<a class="btn" href="courses.html">
-View Details
-</a>
-
-</div>
-
- <div class="card">
-
-<img src="assets/asa-course.png"
-alt="Cisco ASA Firewall"
-class="course-image">
-
-<span class="badge recorded">RECORDED</span>
-
-<h3>Cisco ASA Firewall</h3>
-
-<p>
-📺 Self-paced Recorded Course
-<br><br>
-Master Cisco ASA Firewall from basics to advanced configuration through structured recorded sessions.
-  
-</p>
-
-<br>
-
-<a class="btn" href="courses.html">
-View Details
-</a>
-
-</div> 
-</div>
-
-<div style="text-align:center;margin-top:40px;">
-
-<a class="btn" href="courses.html">
-View All Courses
-</a>
-
-</div>
-
+<!-- WHY CHOOSE -->
+<section id="why" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="reveal mb-14">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Why NetSec Hub</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">Built for real networks, not just exams</h2>
+      <p class="mt-5 text-base lg:text-lg text-slate-400 font-light max-w-2xl leading-relaxed">Every module is taught the way enterprises actually run their networks — practical, scenario-driven and job-focused.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="featureGrid"></div>
+  </div>
 </section>
 
-<section id="technologies">
-
-<h2 class="section-title">
-Technologies You'll Learn
-</h2>
-
-<p style="color:#9ca3af;">
-Train on technologies used by enterprises worldwide.
-</p>
-
-<p style="color:#cbd5e1; margin-bottom:30px;">
-Learn industry-leading networking and cybersecurity technologies through practical training and real-world labs.
-</p>
-
-<div class="tech-grid">
-
-<div class="tech-card">
-<img src="assets/cisco.png" alt="Cisco">
-<p>Cisco</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/paloalto.png" alt="Palo Alto">
-<p>Palo Alto</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/fortinet.png" alt="Fortinet">
-<p>Fortinet</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/zscaler.png" alt="Zscaler">
-<p>Zscaler (Soon)</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/python.png" alt="Python">
-<p>Automation (Soon)</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/eve.jfif" alt="EVE-NG">
-<p>EVE-NG Labs</p>
-</div>
-
-</div>
-
+<!-- PROGRAMS -->
+<section id="programs" class="py-24 lg:py-32 bg-navy2">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="reveal mb-14">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Training Programs</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">Live batches &amp; self-paced courses</h2>
+      <p class="mt-5 text-base lg:text-lg text-slate-400 font-light max-w-2xl leading-relaxed">Instructor-led batches and recorded programs designed for aspiring Network &amp; Security Engineers.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="courseGrid"></div>
+    <div class="reveal mt-14 text-center">
+      <a href="courses.html" class="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold border border-cyan/50 text-cyan hover:bg-cyan/10 transition-colors">
+        View All Courses <i data-lucide="arrow-up-right" class="w-[18px] h-[18px]"></i>
+      </a>
+    </div>
+  </div>
 </section>
 
-<section>
+<!-- DEPLOYMENT SERVICES -->
+<section id="services" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="reveal mb-14">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Enterprise Deployment Services</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">We design, deploy &amp; secure business networks</h2>
+      <p class="mt-5 text-base lg:text-lg text-slate-400 font-light max-w-2xl leading-relaxed">Beyond training — NetSec Hub delivers network design, deployment and security solutions based on your business requirements, scalability and budget.</p>
+    </div>
+    <div class="grid grid-cols-12 gap-6">
 
-<h2 class="section-title">
-Why Students Choose NetSec Hub
-</h2>
+      <div class="reveal card-hover col-span-12 lg:col-span-8 lg:row-span-2 bg-card/80 border border-slate-800 rounded-2xl p-8 relative overflow-hidden">
+        <div class="absolute -right-16 -top-16 w-64 h-64 rounded-full bg-cyan/5 blur-2xl"></div>
+        <i data-lucide="network" class="w-[34px] h-[34px] text-cyan mb-5 block"></i>
+        <h3 class="text-2xl font-semibold tracking-tight mb-3">Enterprise Network Infrastructure Setup</h3>
+        <p class="text-slate-400 font-light leading-relaxed max-w-lg">Design and deployment of secure on-premises network infrastructure according to business needs — from architecture and planning to optimization and troubleshooting.</p>
+        <ul class="space-y-2 mt-4">
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>Network architecture &amp; planning</li>
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>Routing &amp; Switching deployment</li>
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>VLAN, IP addressing, DHCP configuration</li>
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>Network optimization &amp; troubleshooting</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Cisco Routing &amp; Switching</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">HPE Networking</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Aruba Networks</span>
+        </div>
+      </div>
 
-<div class="tech-grid">
+      <div class="reveal card-hover col-span-12 lg:col-span-4 lg:row-span-2 bg-card/80 border border-slate-800 rounded-2xl p-8">
+        <i data-lucide="shield-check" class="w-[34px] h-[34px] text-cyan mb-5 block"></i>
+        <h3 class="text-xl font-semibold tracking-tight mb-3">Firewall Deployment &amp; Security</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">Next-generation firewall deployment to secure enterprise networks.</p>
+        <ul class="space-y-2 mt-4">
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>Installation &amp; configuration</li>
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>Security policy implementation</li>
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>NAT &amp; VPN deployment</li>
+          <li class="flex items-start gap-2 text-sm text-slate-400 font-light"><i data-lucide="check" class="w-3.5 h-3.5 text-cyan mt-0.5 shrink-0"></i>Firewall troubleshooting</li>
+        </ul>
+        <div class="flex flex-wrap gap-2 mt-6">
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Palo Alto</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">FortiGate</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Cisco ASA</span>
+        </div>
+      </div>
 
-<div class="tech-card">
-<h2 style="color:#00bfff;">500+</h2>
-<p>Students Learning</p>
-</div>
+      <div class="reveal card-hover col-span-12 lg:col-span-4 bg-card/80 border border-slate-800 rounded-2xl p-8">
+        <i data-lucide="git-branch" class="w-[30px] h-[30px] text-cyan mb-4 block"></i>
+        <h3 class="text-xl font-semibold tracking-tight mb-3">SD-WAN Deployment</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">Secure branch-to-HQ connectivity, WAN optimization, link redundancy and traffic management.</p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Cisco Viptela</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Fortinet</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Prisma SD-WAN</span>
+        </div>
+      </div>
 
-<div class="tech-card">
-<h2 style="color:#00bfff;">100+</h2>
-<p>Hands-on Labs</p>
-</div>
+      <div class="reveal card-hover col-span-12 lg:col-span-4 bg-card/80 border border-slate-800 rounded-2xl p-8">
+        <i data-lucide="graduation-cap" class="w-[30px] h-[30px] text-cyan mb-4 block"></i>
+        <h3 class="text-xl font-semibold tracking-tight mb-3">Network Security Training</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">CCNA &amp; CCNP, firewall technologies and network security with hands-on lab practice for teams.</p>
+        <div class="flex flex-wrap gap-2 mt-5">
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Cisco</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Palo Alto</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Fortinet</span>
+          <span class="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-cyan/10 text-cyan border border-cyan/20">Cisco ASA</span>
+        </div>
+      </div>
 
-<div class="tech-card">
-<h2 style="color:#00bfff;">50+</h2>
-<p>Interview Scenarios</p>
-</div>
+      <div class="reveal card-hover col-span-12 lg:col-span-4 bg-card/80 border border-slate-800 rounded-2xl p-8">
+        <i data-lucide="search-check" class="w-[30px] h-[30px] text-cyan mb-4 block"></i>
+        <h3 class="text-xl font-semibold tracking-tight mb-3">Network Audit &amp; Security Assessment</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed">Health checks, configuration review, security assessment, performance analysis and improvement recommendations.</p>
+      </div>
 
-<div class="tech-card">
-<h2 style="color:#00bfff;">10+</h2>
-<p>Enterprise Technologies</p>
-</div>
+      <div class="reveal card-hover col-span-12 lg:col-span-6 bg-card/80 border border-slate-800 rounded-2xl p-8">
+        <i data-lucide="life-buoy" class="w-[30px] h-[30px] text-cyan mb-4 block"></i>
+        <h3 class="text-xl font-semibold tracking-tight mb-3">Network Troubleshooting &amp; Support</h3>
+        <p class="text-sm text-slate-400 font-light leading-relaxed max-w-md">Connectivity troubleshooting, routing &amp; switching issues, firewall problems, performance optimization and remote assistance.</p>
+      </div>
 
-</div>
+      <div class="reveal card-hover col-span-12 lg:col-span-6 rounded-2xl p-8 bg-gradient-to-br from-cyan to-[#0077ff] text-navy flex flex-col justify-between">
+        <div>
+          <h3 class="text-2xl font-bold tracking-tight mb-3">Need a custom deployment?</h3>
+          <p class="text-sm font-medium text-navy/80 leading-relaxed">Tell us your requirements — we'll design a network that fits your scale and budget.</p>
+        </div>
+        <a href="#contact" class="mt-8 inline-flex items-center gap-2 self-start px-6 py-3.5 rounded-full font-bold bg-navy text-cyan hover:gap-3.5 transition-[gap] duration-200">
+          Discuss Your Project <i data-lucide="arrow-right" class="w-[17px] h-[17px]"></i>
+        </a>
+      </div>
 
-</section>    
-
-  
-<section id="labs">
-
-
-<h2 class="section-title">Practical Lab Environment</h2>
-
-<div class="labs-preview">
-
-<div class="labs-text">
-
-<p>
-<ul style="line-height:2;font-size:17px;">
-
-<li>🖥️ Enterprise EVE-NG Labs</li>
-
-<li>🌐 Multi-Vendor Topologies</li>
-
-<li>🔥 Firewall Deployments</li>
-
-<li>⚙️ Routing & Switching Scenarios</li>
-
-<li>📦 Downloadable Configurations</li>
-
-<li>📄 Study Notes & Cheat Sheets</li>
-
-<li>🚀 Real Enterprise Troubleshooting</li>
-
-</ul>
-  
-</p>
-
-</div>
-
-<div class="labs-slider">
-
-<div class="slider-container">
-
-<img id="lab-image" src="assets/lab1.png" alt="Lab Preview">
-
-<div id="lab-title" class="lab-title">
-BGP Path Attributes
-</div>
-
-<div class="slider-dots">
-
-<span class="dot active"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-<span class="dot"></span>
-
-</div>  
-  
-</div>
-
-</div>
-
-</div>
-
+    </div>
+  </div>
 </section>
 
-<section id="companies">
-
-<h2 class="section-title">
-Companies Hiring These Skills
-</h2>
-
-<p style="color:#9ca3af;margin-bottom:35px;">
-Skills taught at NetSec Hub are widely used across enterprises, system integrators and IT consulting companies.
-</p>
-
-<div class="tech-grid">
-
-<div class="tech-card">
-<img src="assets/cisco.png">
-<p>Cisco</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/hcl.png">
-<p>HCLTech</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/accenture.png">
-<p>Accenture</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/paloalto.png">
-<p>Palo Alto</p>
-</div>
-  
-<div class="tech-card">
-<img src="assets/tcs.jfif">
-<p>TCS</p>
-</div>
-
-<div class="tech-card">
-<img src="assets/fortinet.png">
-<p>Fortinet</p>
-</div>
-  
-<div class="tech-card">
-<img src="assets/infosys.png">
-<p>Infosys</p>
-</div>
- 
-<div class="tech-card">
-<img src="assets/wipro.png">
-<p>Wipro</p>
-</div>
-
-
-</div>
-
-</section>
-  
-<section id="about">
-
-<h2 class="section-title">About NetSec Hub</h2>
-
-<div class="about">
-
-<p>
-NetSec Hub is a networking and cybersecurity learning platform created to help students and professionals build practical skills through real-world training.
-</p>
-
-<br>
-
-<p>
-Our mission is to simplify complex networking and security concepts through hands-on labs, technical content, interview preparation and structured learning paths.
-</p>
-
-<br>
-
-<p>
-Whether you're learning BGP, OSPF, Cisco ASA, FortiGate or preparing for your next networking role, NetSec Hub is designed to help you learn, practice and grow.
-</p>
-
-<br>
-
-<p style="color:#9ca3af;">
-Created by Ansh Rana • Networking & Cybersecurity Instructor
-</p>
-
-</div>
-
+<!-- TECH MARQUEE -->
+<section class="py-20 bg-navy2 border-y border-white/5 overflow-hidden">
+  <p class="text-center uppercase text-xs tracking-[0.25em] font-semibold text-slate-500 mb-10 px-6">Train on technologies used by enterprises worldwide</p>
+  <div class="overflow-hidden flex"><div class="marquee-track" id="techTrack"></div></div>
 </section>
 
-<section id="contact">
-
-<h2 class="section-title">
-Request a Callback
-</h2>
-
-<div class="about">
-
-<input type="text" placeholder="Your Name">
-
-<br><br>
-
-<input type="email" placeholder="Email Address">
-
-<br><br>
-
-<input type="text" placeholder="Phone Number">
-
-<br><br>
-
-<select>
-
-<option>Interested Course</option>
-
-<option>CCNA</option>
-
-<option>CCNP ENARSI</option>
-
-<option>Palo Alto</option>
-
-<option>Cisco ASA</option>
-
-</select>
-
-<br><br>
-
-<textarea placeholder="Message"></textarea>
-
-<br><br>
-
-<a class="btn"
-href="https://wa.me/918860971330"
-target="_blank">
-Submit
-</a>
-
-</div>
-
+<!-- STATS -->
+<section class="py-24 lg:py-28">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid grid-cols-2 lg:grid-cols-4 gap-10" id="statsGrid"></div>
 </section>
-  
-<section style="text-align:center;padding:40px 8%;">
 
-<h2 class="section-title">
-Ready to Start Your Networking Journey?
-</h2>
-
-<p style="color:#9ca3af;margin-bottom:25px;">
-Join our live batches or recorded courses and start building practical networking skills today.
-</p>
-
-<a class="btn" href="courses.html">
-Explore Courses
-</a>
-
+<!-- LABS -->
+<section id="labs" class="py-24 lg:py-32 bg-navy2">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="reveal mb-14">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Practical Lab Environment</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">Practice on real enterprise topologies</h2>
+    </div>
+    <div class="grid lg:grid-cols-2 gap-14 items-center">
+      <ul class="space-y-5 reveal" id="perkList"></ul>
+      <div class="reveal relative">
+        <div class="absolute -inset-4 bg-cyan/10 blur-2xl rounded-3xl"></div>
+        <div class="relative rounded-2xl overflow-hidden border border-cyan/20 shadow-[0_0_40px_rgba(0,191,255,0.15)]">
+          <img id="labImg" src="assets/lab1.png" alt="Lab Preview" class="w-full max-h-[60vh] object-cover lab-img">
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-navy via-navy/60 to-transparent p-6 flex items-end justify-between">
+            <p id="labTitle" class="font-outfit font-semibold text-lg">BGP Path Attributes</p>
+            <div class="flex gap-2" id="labDots"></div>
+          </div>
+          <button onclick="labMove(-1)" aria-label="Previous lab" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy/70 backdrop-blur border border-white/10 flex items-center justify-center hover:border-cyan/50 hover:text-cyan transition-colors"><i data-lucide="chevron-left" class="w-[18px] h-[18px]"></i></button>
+          <button onclick="labMove(1)" aria-label="Next lab" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-navy/70 backdrop-blur border border-white/10 flex items-center justify-center hover:border-cyan/50 hover:text-cyan transition-colors"><i data-lucide="chevron-right" class="w-[18px] h-[18px]"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
-<footer>
 
-<h3>NetSec Hub</h3>
+<!-- COMPANIES -->
+<section class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="reveal mb-14">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Career Outcomes</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">Companies hiring these skills</h2>
+      <p class="mt-5 text-base lg:text-lg text-slate-400 font-light max-w-2xl leading-relaxed">Skills taught at NetSec Hub are widely used across enterprises, system integrators and IT consulting companies.</p>
+    </div>
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-5" id="companyGrid"></div>
+  </div>
+</section>
 
-<p style="margin-top:10px;">
-Networking • Cybersecurity • Career Growth
-</p>
+<!-- REVIEWS -->
+<section id="reviews" class="py-24 lg:py-32 bg-navy2">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex flex-wrap items-end justify-between gap-6 reveal mb-14">
+      <div>
+        <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Student Reviews</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight max-w-2xl">What our students say</h2>
+        <p class="mt-5 text-base lg:text-lg text-slate-400 font-light max-w-2xl leading-relaxed">Real feedback from learners who trained with NetSec Hub.</p>
+      </div>
+      <a href="https://wa.me/918860971330?text=Hi%20NetSec%20Hub,%20I%20want%20to%20share%20my%20review%20about%20my%20training%20experience." target="_blank" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-full font-bold border border-cyan/50 text-cyan hover:bg-cyan/10 transition-colors">
+        <i data-lucide="pen-line" class="w-[17px] h-[17px]"></i> Share Your Review
+      </a>
+    </div>
+    <div class="reveal text-center py-16 rounded-2xl border border-dashed border-slate-700">
+      <i data-lucide="quote" class="w-8 h-8 text-cyan mx-auto mb-4 block"></i>
+      <p class="text-slate-400 font-light">Trained with us? Send your review on WhatsApp and we'll feature it here.</p>
+    </div>
+  </div>
+</section>
 
-<br>
+<!-- ABOUT -->
+<section id="about" class="py-24 lg:py-32">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14 items-center">
+    <div class="reveal relative order-2 lg:order-1">
+      <div class="absolute -inset-4 bg-cyan/10 blur-2xl rounded-3xl"></div>
+      <img src="assets/industry-skills.jfif" alt="About NetSec Hub" class="relative w-full rounded-2xl border border-cyan/20 object-cover max-h-[420px]">
+      <div class="absolute -bottom-6 left-6 right-6 sm:right-auto px-6 py-4 rounded-xl bg-card/90 backdrop-blur-md border border-cyan/30">
+        <p class="font-outfit font-bold">Ansh Rana</p>
+        <p class="text-xs text-slate-400">Founder • Networking &amp; Cybersecurity Instructor</p>
+      </div>
+    </div>
+    <div class="reveal order-1 lg:order-2">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">About Us</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-8">Practical skills, real networks, actual careers</h2>
+      <div class="space-y-5 text-slate-400 font-light leading-relaxed">
+        <p>NetSec Hub is a networking and cybersecurity learning platform created to help students and professionals build practical skills through real-world training.</p>
+        <p>Our mission is to simplify complex networking and security concepts through hands-on labs, technical content, interview preparation and structured learning paths — and to bring the same engineering rigor to enterprise deployments.</p>
+        <p>Whether you're learning BGP, OSPF, Cisco ASA, FortiGate or preparing for your next networking role, NetSec Hub is designed to help you learn, practice and grow.</p>
+      </div>
+      <a href="https://www.linkedin.com/company/netsec-hub" target="_blank" class="mt-8 inline-flex items-center gap-2 px-6 py-3 rounded-full text-sm font-bold border border-cyan/50 text-cyan hover:bg-cyan/10 transition-colors">
+        <i data-lucide="linkedin" class="w-4 h-4"></i> Follow on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
 
-<a class="btn" href="courses.html">
-Explore Courses
-</a>
+<!-- CONTACT -->
+<section id="contact" class="py-24 lg:py-32 grid-overlay">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 grid lg:grid-cols-2 gap-14">
+    <div class="reveal">
+      <p class="uppercase text-xs tracking-[0.25em] font-semibold text-cyan mb-4">Get In Touch</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight mb-5">Request a callback</h2>
+      <p class="text-base lg:text-lg text-slate-400 font-light leading-relaxed mb-10">Interested in a course or an enterprise deployment? Drop your details and our team will reach out to you.</p>
+      <div class="space-y-4">
+        <a href="https://wa.me/918860971330" target="_blank" class="flex items-center gap-4 p-5 rounded-2xl bg-card/80 border border-slate-800 hover:border-[#25D366]/50 transition-colors group">
+          <span class="w-11 h-11 rounded-xl bg-[#25D366]/10 border border-[#25D366]/30 flex items-center justify-center shrink-0"><i data-lucide="message-circle" class="w-[19px] h-[19px] text-[#25D366]"></i></span>
+          <span><span class="font-semibold text-sm group-hover:text-[#25D366] transition-colors block">WhatsApp Us</span><span class="text-xs text-slate-500">+91 88609 71330 — fastest response</span></span>
+        </a>
+        <div class="flex items-center gap-4 p-5 rounded-2xl bg-card/80 border border-slate-800">
+          <span class="w-11 h-11 rounded-xl bg-cyan/10 border border-cyan/30 flex items-center justify-center shrink-0"><i data-lucide="phone-call" class="w-[19px] h-[19px] text-cyan"></i></span>
+          <span><span class="font-semibold text-sm block">Book a Free Counselling Call</span><span class="text-xs text-slate-500">Course guidance &amp; deployment consultations</span></span>
+        </div>
+      </div>
+    </div>
+    <form id="callbackForm" class="reveal bg-card/80 backdrop-blur-md border border-slate-800 rounded-2xl p-8 space-y-5 self-start">
+      <div class="grid sm:grid-cols-2 gap-5">
+        <input required id="fName" placeholder="Your Name" class="w-full px-4 py-3.5 rounded-xl bg-navy border border-slate-700 text-white placeholder-slate-500 text-sm">
+        <input required type="email" id="fEmail" placeholder="Email Address" class="w-full px-4 py-3.5 rounded-xl bg-navy border border-slate-700 text-white placeholder-slate-500 text-sm">
+      </div>
+      <input required id="fPhone" placeholder="Phone Number" class="w-full px-4 py-3.5 rounded-xl bg-navy border border-slate-700 text-white placeholder-slate-500 text-sm">
+      <select id="fInterest" class="w-full px-4 py-3.5 rounded-xl bg-navy border border-slate-700 text-white text-sm">
+        <option>CCNA Live Batch</option>
+        <option>CCNP ENARSI</option>
+        <option>Palo Alto Firewall</option>
+        <option>Cisco ASA (Recorded)</option>
+        <option>Enterprise Deployment Services</option>
+        <option>Network Audit &amp; Support</option>
+        <option>Other</option>
+      </select>
+      <textarea id="fMsg" placeholder="Message (optional)" rows="4" class="w-full px-4 py-3.5 rounded-xl bg-navy border border-slate-700 text-white placeholder-slate-500 text-sm resize-none"></textarea>
+      <button type="submit" class="btn-primary w-full inline-flex items-center justify-center gap-2 px-7 py-4 rounded-full font-bold bg-gradient-to-r from-cyan to-[#0080ff] text-navy">
+        <i data-lucide="send" class="w-[17px] h-[17px]"></i> Request Callback
+      </button>
+      <p id="formNote" class="hidden text-center text-sm text-green-400 font-medium">Opening WhatsApp with your details — just press send!</p>
+    </form>
+  </div>
+</section>
 
-<a class="btn btn-outline"
-href="https://www.linkedin.com/company/netsec-hub"
-target="_blank">
-LinkedIn
-</a>
-
-<p style="margin-top:30px;color:#9ca3af;font-size:.9rem;">
-© 2026 NetSec Hub. All Rights Reserved.
-</p>
-
+<!-- FOOTER -->
+<footer class="bg-[#05070d] border-t border-white/5 py-16">
+  <div class="max-w-7xl mx-auto px-6 md:px-10">
+    <div class="flex flex-col md:flex-row md:items-start justify-between gap-10">
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <img src="assets/NetSec.png" alt="NetSec Hub" class="h-10 w-auto rounded-lg">
+          <span class="font-outfit font-bold text-lg">NetSec <span class="text-cyan">Hub</span></span>
+        </div>
+        <p class="text-sm text-slate-500 font-light max-w-xs leading-relaxed">Networking • Cybersecurity • Enterprise Deployment • Career Growth</p>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p class="uppercase text-xs tracking-[0.2em] font-semibold text-slate-500 mb-1">Explore</p>
+        <a href="index.html#programs" class="text-sm text-slate-400 hover:text-cyan transition-colors">Training Programs</a>
+        <a href="courses.html" class="text-sm text-slate-400 hover:text-cyan transition-colors">All Courses</a>
+        <a href="index.html#services" class="text-sm text-slate-400 hover:text-cyan transition-colors">Deployment Services</a>
+        <a href="index.html#labs" class="text-sm text-slate-400 hover:text-cyan transition-colors">Lab Environment</a>
+        <a href="index.html#contact" class="text-sm text-slate-400 hover:text-cyan transition-colors">Book a Call</a>
+      </div>
+      <div class="flex flex-col gap-3">
+        <p class="uppercase text-xs tracking-[0.2em] font-semibold text-slate-500 mb-1">Connect</p>
+        <a href="https://www.linkedin.com/company/netsec-hub" target="_blank" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-cyan transition-colors"><i data-lucide="linkedin" class="w-[15px] h-[15px]"></i> LinkedIn</a>
+        <a href="https://wa.me/918860971330" target="_blank" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-[#25D366] transition-colors"><i data-lucide="message-circle" class="w-[15px] h-[15px]"></i> +91 88609 71330</a>
+        <a href="https://netsechub.in" target="_blank" class="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-cyan transition-colors">netsechub.in</a>
+      </div>
+    </div>
+    <div class="mt-14 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between gap-3">
+      <p class="text-xs text-slate-600">© 2026 NetSec Hub. All Rights Reserved.</p>
+      <p class="text-xs text-slate-600">Created by Ansh Rana</p>
+    </div>
+  </div>
 </footer>
-  
-<a class="whatsapp-float"
-href="https://wa.me/918860971330"
-target="_blank"
-title="Chat on WhatsApp">
-💬
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/918860971330" target="_blank" title="Chat on WhatsApp" aria-label="Chat on WhatsApp" class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-[#25D366] flex items-center justify-center text-white shadow-[0_0_24px_rgba(37,211,102,0.45)] hover:scale-110 transition-transform">
+  <i data-lucide="message-circle" class="w-[26px] h-[26px]"></i>
 </a>
-  
+
 <script>
+lucide.createIcons();
 
-const labImages = [
-"assets/lab1.png",
-"assets/lab2.png",
-"assets/lab3.png",
-"assets/lab4.png",
-"assets/lab5.png"
+/* ===== Ticker ===== */
+const tickerItems = [
+  ['CCNA','Live Batch • Admissions Open'],['Palo Alto','Firewall Live Batch • Enrolling'],
+  ['Cisco ASA','Recorded Course Available'],['New','Enterprise Deployment Services'],['WhatsApp','Support Available']
 ];
+const tickerHTML = `<div class="flex items-center gap-8 px-8 whitespace-nowrap text-sm font-semibold shrink-0">` +
+  tickerItems.map(([l,t]) => `<span class="flex items-center gap-8"><span><strong class="text-navy">${l}</strong> <span class="text-navy/80">${t}</span></span><span class="text-navy/40">•</span></span>`).join('') +
+  `<a href="https://www.linkedin.com/company/netsec-hub" target="_blank" class="text-navy underline underline-offset-2">Follow @NetSecHub</a><span class="text-navy/40">•</span></div>`;
+document.getElementById('tickerTrack').innerHTML = tickerHTML.repeat(4);
 
-const labTitles = [
-"BGP Path Attributes",
-"Palo Alto VPN",
-"OSPF Multi-Area",
-"Firewall Lab",
-"Major Enterprise Project"
-];
+/* ===== Mobile menu ===== */
+const menuBtn = document.getElementById('menuBtn'), mobileMenu = document.getElementById('mobileMenu');
+let menuOpen = false;
+menuBtn.onclick = () => {
+  menuOpen = !menuOpen;
+  mobileMenu.classList.toggle('hidden', !menuOpen);
+  mobileMenu.classList.toggle('flex', menuOpen);
+  menuBtn.innerHTML = `<i data-lucide="${menuOpen ? 'x' : 'menu'}" class="w-6 h-6"></i>`;
+  lucide.createIcons();
+};
+mobileMenu.querySelectorAll('a').forEach(a => a.onclick = () => menuBtn.click());
 
-let currentLab = 0;
-
-setInterval(() => {
-
-const img = document.getElementById("lab-image");
-
-img.style.opacity = "0";
-
-setTimeout(() => {
-
-currentLab++;
-
-if(currentLab >= labImages.length){
-currentLab = 0;
-}
-
-img.src = labImages[currentLab];
-
-document.getElementById("lab-title").innerText =
-labTitles[currentLab];
-img.style.transform = "scale(1)";  
-
-document.querySelectorAll(".dot").forEach(dot=>{
-dot.classList.remove("active");
+/* ===== Nav shadow on scroll ===== */
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').style.boxShadow = window.scrollY > 20 ? '0 8px 32px rgba(0,191,255,0.06)' : 'none';
 });
 
-document.querySelectorAll(".dot")[currentLab]
-.classList.add("active");
-  
-img.style.opacity = "1";
-setTimeout(()=>{
-img.style.transform = "scale(1.08)";
-},100);
+/* ===== Network canvas ===== */
+(() => {
+  const canvas = document.getElementById('netCanvas'), ctx = canvas.getContext('2d');
+  let w, h;
+  const nodes = Array.from({length: 50}, () => ({x: Math.random(), y: Math.random(), vx: (Math.random()-.5)*.0007, vy: (Math.random()-.5)*.0007}));
+  const resize = () => { w = canvas.width = canvas.offsetWidth; h = canvas.height = canvas.offsetHeight; };
+  resize(); window.addEventListener('resize', resize);
+  (function draw(){
+    ctx.clearRect(0,0,w,h);
+    nodes.forEach(n => { n.x+=n.vx; n.y+=n.vy; if(n.x<0||n.x>1)n.vx*=-1; if(n.y<0||n.y>1)n.vy*=-1; });
+    for(let i=0;i<nodes.length;i++) for(let j=i+1;j<nodes.length;j++){
+      const dx=(nodes[i].x-nodes[j].x)*w, dy=(nodes[i].y-nodes[j].y)*h, d=Math.hypot(dx,dy);
+      if(d<150){ ctx.strokeStyle=`rgba(0,191,255,${(1-d/150)*.22})`; ctx.lineWidth=1; ctx.beginPath(); ctx.moveTo(nodes[i].x*w,nodes[i].y*h); ctx.lineTo(nodes[j].x*w,nodes[j].y*h); ctx.stroke(); }
+    }
+    nodes.forEach(n => { ctx.fillStyle='rgba(0,191,255,.7)'; ctx.beginPath(); ctx.arc(n.x*w,n.y*h,1.6,0,Math.PI*2); ctx.fill(); });
+    requestAnimationFrame(draw);
+  })();
+})();
 
+/* ===== Feature cards ===== */
+const features = [
+  {icon:'rocket',img:'assets/latest-tech.png',t:'Latest Technologies',d:'Learn Cisco, Palo Alto, Fortinet, Zscaler, AWS and Azure Security technologies.'},
+  {icon:'briefcase',img:'assets/industry-skills.jfif',t:'Industry Skills',d:'Build practical implementation and troubleshooting skills required by employers.'},
+  {icon:'flask-conical',img:'assets/labs.jfif',t:'Hands-On Labs',d:'Practice using EVE-NG labs, enterprise routing, firewalls and security technologies.'},
+  {icon:'cog',img:'assets/automation.png',t:'Network Automation',d:'Learn automation concepts, APIs and modern network operations workflows.'},
+  {icon:'cloud',img:'assets/cloud-security.png',t:'Cloud Security',d:'AWS Security, Azure Security and Zscaler Secure Access technologies.'},
+  {icon:'target',img:'assets/interview.jfif',t:'Interview Preparation',d:'Technical questions, scenario-based interviews, troubleshooting rounds and resume guidance.'}
+];
+document.getElementById('featureGrid').innerHTML = features.map(f => `
+  <div class="reveal card-hover bg-card/80 border border-slate-800 rounded-2xl overflow-hidden group">
+    <div class="h-44 overflow-hidden"><img src="${f.img}" alt="${f.t}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"></div>
+    <div class="p-7">
+      <i data-lucide="${f.icon}" class="w-[26px] h-[26px] text-cyan mb-4 block"></i>
+      <h3 class="text-xl font-semibold tracking-tight mb-2">${f.t}</h3>
+      <p class="text-sm text-slate-400 leading-relaxed font-light">${f.d}</p>
+    </div>
+  </div>`).join('');
 
-}, 1200);
+/* ===== Course cards ===== */
+const homeCourses = [
+  {img:'assets/ccna-course.png',badge:'LIVE BATCH',ribbon:['Most Popular','bg-amber-500'],t:'CCNA Live Batch',d:'Routing, Switching, OSPF, EIGRP, VLANs and interview preparation with live practical sessions.'},
+  {img:'assets/ccnp-course.jfif',badge:'LIVE BATCH',t:'CCNP ENARSI Live Batch',d:'Master Enterprise Routing, BGP, OSPF, Route Redistribution and real-world troubleshooting.'},
+  {img:'assets/paloalto.png',badge:'LIVE BATCH',ribbon:['Trending','bg-red-500'],t:'Palo Alto Firewall Live Batch',d:'Security Policies, NAT, VPN, App-ID, User-ID and enterprise firewall deployments.'},
+  {img:'assets/asa-course.png',badge:'RECORDED',t:'Cisco ASA Firewall',d:'Master Cisco ASA from basics to advanced configuration through structured recorded sessions.'}
+];
+document.getElementById('courseGrid').innerHTML = homeCourses.map(c => `
+  <div class="reveal card-hover relative group bg-card/80 border border-slate-800 rounded-2xl p-6 flex flex-col overflow-hidden">
+    ${c.ribbon ? `<div class="absolute top-4 -right-9 w-36 text-center py-1.5 text-[11px] font-bold text-white rotate-45 shadow-lg z-10 ${c.ribbon[1]}">${c.ribbon[0]}</div>` : ''}
+    <div class="overflow-hidden rounded-xl bg-navy mb-5"><img src="${c.img}" alt="${c.t}" loading="lazy" class="w-full h-44 object-contain group-hover:scale-105 transition-transform duration-500"></div>
+    <span class="inline-flex items-center gap-1.5 self-start px-3 py-1 rounded-full text-[11px] font-bold tracking-wide border mb-4 ${c.badge==='LIVE BATCH' ? 'text-green-400 border-green-400/40 bg-green-400/10' : 'text-cyan border-cyan/40 bg-cyan/10'}">
+      <i data-lucide="${c.badge==='LIVE BATCH' ? 'monitor-play' : 'video'}" class="w-3 h-3"></i>${c.badge}
+    </span>
+    <h3 class="text-lg font-semibold tracking-tight mb-2">${c.t}</h3>
+    <p class="text-sm text-slate-400 leading-relaxed font-light flex-1">${c.d}</p>
+    <a href="courses.html" class="mt-6 inline-flex items-center gap-1.5 text-sm font-bold text-cyan hover:gap-3 transition-[gap] duration-200">View Details <i data-lucide="arrow-up-right" class="w-4 h-4"></i></a>
+  </div>`).join('');
 
-}, 6000);
+/* ===== Tech marquee ===== */
+const tech = [['assets/cisco.png','Cisco'],['assets/paloalto.png','Palo Alto'],['assets/fortinet.png','Fortinet'],['assets/zscaler.png','Zscaler (Soon)'],['assets/python.png','Automation (Soon)'],['assets/eve.jfif','EVE-NG Labs']];
+const techHTML = tech.map(([img,name]) => `
+  <div class="mx-5 flex items-center gap-4 px-8 py-5 rounded-2xl bg-card/80 border border-slate-800 hover:border-cyan/40 transition-colors shrink-0">
+    <img src="${img}" alt="${name}" loading="lazy" class="h-10 w-auto object-contain">
+    <span class="font-outfit font-semibold text-lg text-slate-200 whitespace-nowrap">${name}</span>
+  </div>`).join('');
+document.getElementById('techTrack').innerHTML = techHTML + techHTML + techHTML;
 
+/* ===== Stats ===== */
+const stats = [[500,'+','Students Learning'],[100,'+','Hands-on Labs'],[50,'+','Interview Scenarios'],[10,'+','Enterprise Technologies']];
+document.getElementById('statsGrid').innerHTML = stats.map(([v,s,l],i) => `
+  <div class="reveal border-l-2 border-cyan/30 pl-6">
+    <span class="stat-num text-6xl md:text-7xl font-black text-cyan font-outfit tracking-tighter" data-target="${v}" data-suffix="${s}">0${s}</span>
+    <p class="mt-3 text-sm text-slate-400 font-light">${l}</p>
+  </div>`).join('');
+
+/* ===== Lab perks + slider ===== */
+const perks = [
+  ['monitor-play','Enterprise EVE-NG Labs'],['globe','Multi-Vendor Topologies'],['flame','Firewall Deployments'],
+  ['settings','Routing & Switching Scenarios'],['package','Downloadable Configurations'],['file-text','Study Notes & Cheat Sheets'],['wrench','Real Enterprise Troubleshooting']
+];
+document.getElementById('perkList').innerHTML = perks.map(([icon,text]) => `
+  <li class="flex items-center gap-4 group">
+    <span class="w-11 h-11 rounded-xl bg-cyan/10 border border-cyan/25 flex items-center justify-center shrink-0 group-hover:bg-cyan/20 transition-colors"><i data-lucide="${icon}" class="w-[19px] h-[19px] text-cyan"></i></span>
+    <span class="text-slate-300 font-light">${text}</span>
+  </li>`).join('');
+
+const labData = [
+  ['assets/lab1.png','BGP Path Attributes'],['assets/lab2.png','Palo Alto VPN'],['assets/lab3.png','OSPF Multi-Area'],
+  ['assets/lab4.png','Firewall Lab'],['assets/lab5.png','Major Enterprise Project']
+];
+let labIdx = 0;
+const labImg = document.getElementById('labImg'), labTitle = document.getElementById('labTitle'), labDots = document.getElementById('labDots');
+function renderDots(){
+  labDots.innerHTML = labData.map((_,i) => `<button onclick="labGo(${i})" aria-label="Slide ${i+1}" class="h-2 rounded-full transition-all duration-300 ${i===labIdx?'w-6 bg-cyan':'w-2 bg-white/30 hover:bg-white/50'}"></button>`).join('');
+}
+function labGo(i){
+  labIdx = (i + labData.length) % labData.length;
+  labImg.style.opacity = 0;
+  setTimeout(() => { labImg.src = labData[labIdx][0]; labTitle.textContent = labData[labIdx][1]; labImg.style.opacity = 1; renderDots(); }, 400);
+}
+function labMove(d){ labGo(labIdx + d); }
+renderDots();
+setInterval(() => labGo(labIdx + 1), 5000);
+
+/* ===== Companies ===== */
+const companies = [['assets/cisco.png','Cisco'],['assets/hcl.png','HCLTech'],['assets/accenture.png','Accenture'],['assets/paloalto.png','Palo Alto'],['assets/tcs.jfif','TCS'],['assets/fortinet.png','Fortinet'],['assets/infosys.png','Infosys'],['assets/wipro.png','Wipro']];
+document.getElementById('companyGrid').innerHTML = companies.map(([img,name]) => `
+  <div class="reveal card-hover flex flex-col items-center gap-4 py-8 rounded-2xl bg-card/60 border border-slate-800">
+    <img src="${img}" alt="${name}" loading="lazy" class="h-12 w-auto object-contain grayscale hover:grayscale-0 transition-[filter] duration-300">
+    <span class="text-sm text-slate-400 font-medium">${name}</span>
+  </div>`).join('');
+
+lucide.createIcons();
+
+/* ===== Scroll reveal + counters ===== */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(!e.isIntersecting) return;
+    e.target.classList.add('visible');
+    e.target.querySelectorAll('.stat-num').forEach(el => {
+      if(el.dataset.done) return; el.dataset.done = 1;
+      const target = +el.dataset.target, suffix = el.dataset.suffix, dur = 1600, start = performance.now();
+      (function tick(now){
+        const p = Math.min((now-start)/dur, 1);
+        el.textContent = Math.round(target * (1-Math.pow(1-p,3))) + suffix;
+        if(p<1) requestAnimationFrame(tick);
+      })(start);
+    });
+    io.unobserve(e.target);
+  });
+}, {threshold: 0.15});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* ===== Form → WhatsApp ===== */
+document.getElementById('callbackForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const msg = `Hi NetSec Hub, I want to request a callback.%0A%0AName: ${encodeURIComponent(document.getElementById('fName').value)}%0AEmail: ${encodeURIComponent(document.getElementById('fEmail').value)}%0APhone: ${encodeURIComponent(document.getElementById('fPhone').value)}%0AInterest: ${encodeURIComponent(document.getElementById('fInterest').value)}%0AMessage: ${encodeURIComponent(document.getElementById('fMsg').value || '—')}`;
+  document.getElementById('formNote').classList.remove('hidden');
+  window.open(`https://wa.me/918860971330?text=${msg}`, '_blank');
+});
 </script>
-
 </body>
 </html>
